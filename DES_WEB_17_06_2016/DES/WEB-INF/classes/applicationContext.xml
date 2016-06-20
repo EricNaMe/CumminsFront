@@ -1,0 +1,60 @@
+
+
+
+ 
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd">
+
+              
+
+        <jee:jndi-lookup id="dataSource"
+   jndi-name="jdbc/ZMKTDS"
+   expected-type="javax.sql.DataSource" />
+   
+   
+        
+        <jee:jndi-lookup id="dataSourceWwsps"
+   jndi-name="jdbc/wwspsds"
+   expected-type="javax.sql.DataSource" />  
+
+
+ 
+ 	 
+ 	<!-- Conexion DEV -->
+ 	<!--
+ 	<bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ 
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="url" value="jdbc:oracle:thin:@ftizssddb051.ftdc.cummins.com:1528:CMXD1" />
+        <property name="username" value="zmkt" />
+        <property name="password" value="zmkt#1" />
+    </bean>
+    -->
+    <!-- Conexion DEV Temporal -->
+    <!-- 
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ 
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="url" value="jdbc:oracle:thin:@ftizssddb030.ftdc.cummins.com:1521:slpnrpd1" />
+        <property name="username" value="LOTUS" />
+        <property name="password" value="lot_1302" />
+    </bean>
+ 
+     <bean id="dataSourceWwsps"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="url" value="jdbc:oracle:thin:@ftizssddb051.ftdc.cummins.com:1527:wwspsd1" />
+        <property name="username" value="NV956" />
+        <property name="password" value="nv_123" />
+    </bean>
+ 
+ -->
+ 
+</beans>
