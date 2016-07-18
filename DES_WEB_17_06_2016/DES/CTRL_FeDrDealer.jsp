@@ -179,8 +179,13 @@
     }
 </script>
 
+<style>
+.oculto{
+display:none;
+}
+</style>
 
-<div class="row">
+<div  class="row oculto">
     <div class="col-sm-5">
         <div class="col-sm-4">
             <label  for="tipo_eval">Tipo de evaluación:</label>
@@ -232,16 +237,16 @@
 
 <br>
 
-<div class="col-sm-5">
-    <div class="col-xs-3">
+<div  class="col-sm-6 ">
+    <div class="col-xs-2">
         <label class="" for="dr">DR:</label>
     </div>
-    <div class="col-xs-9">
+    <div class="col-xs-10">
         <select readonly style="background-color:#ffffff;"  class="col-md-5 form-control" id="dr" name="dr"></select>
     </div>
 </div>
 
-<div class="col-sm-3">
+<div class="col-sm-3 oculto">
     <div class="col-xs-3">
         <!--<label class="" for="codigoDR">Código DR:</label>-->
     </div>
@@ -251,36 +256,36 @@
     </div>
 </div>
 
-<div class="col-sm-4"> 
-    <div class="col-xs-3" style="width:47%;">
-        <label for="datepicker">Fecha evaluación:</label>
+<div  id=""  class="col-sm-5 "> 
+    <div class="col-sm-4" style="width:47%;">
+        <label for="datepicker">Fecha Evaluación:</label>
     </div>
-    <div class="col-xs-9" style="width:53%;">
+    <div class="col-sm-6" style="width: 34%;margin-left: -42px;">
         <input readonly style="background-color:#ffffff;" id="datepicker" name="fecha_eval" class="form-control" type="text" value=""/>
     </div>
 </div>
 
 <br><br><br>   
 
-<div class="col-sm-5">
-    <div class="col-xs-3" >
+<div  id=""  class="col-sm-6 ">
+    <div class="col-xs-2" >
         <label class="" for="dealer">Dealer:</label>
     </div>
-    <div class="col-xs-9">
+    <div class="col-xs-10">
         <select readonly style="background-color:#ffffff;"  class="col-md-5 form-control" id="dealer" name="dealer"></select>
     </div>
 </div>
 
-<div class="col-sm-3">
-    <div class="col-xs-3" >
+<div  id=""  class="col-sm-4 ">
+    <div class="col-xs-5" >
         <label class="" for="codigoDeal">Código Dealer:</label>
     </div>
-    <div class="col-xs-9" >
+    <div     style="margin-left:17px;" class="col-xs-4" >
         <input readonly style="background-color:#ffffff;" type="text"  class="col-md-7 form-control" id="codigoDeal" name="codigoDeal">
     </div>
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-4 oculto">
     <div class="col-xs-3" style="width:47%;">
         <label for="datepicker2">Fecha inicio evaluación:</label>
     </div>
@@ -291,7 +296,7 @@
 
 <br><br><br>   
 
-<div style="" class="col-sm-4 col-sm-offset-8">
+<div style="" class="col-sm-4 col-sm-offset-8 oculto">
     <div class="col-xs-3" style="width:47%;">
         <label for="datepicker3">Fecha fin evaluación:</label>
     </div>

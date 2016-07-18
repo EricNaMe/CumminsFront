@@ -90,7 +90,7 @@
 
 <div class="table-responsive">
     <form role="form" id="formPartes"> 
-    	<h1 style="font-family: arial; font-size: 18px; font-weight: bold; text-align: center;">Partes individual</h1>
+    	<h1 class="titulo-plantilla" style="font-family: arial;font-weight: bold; text-align: center;">Partes Individual</h1>
 			<br><br>
         <%@include file="CTRL_FeDrDealer.jsp"%>
 
@@ -113,20 +113,20 @@
         </div>-->
 
 
-        <br><br><br>
+        
 
         <div class="col-sm-5">
-            <div class="col-xs-3">
+            <div class="col-xs-2">
                 <label class="" for="usr">OEM:</label>
             </div>
-            <div class="col-xs-9">
+            <div style="margin-left: 3%;" class="col-xs-9">
               
 				<input class="form-control"  name="oem" id="oem"  type="text" style="background-color:#ffffff; color:#000000"  readonly >
 	         
             </div>
         </div>
         
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-sm-offset-1">
             <div  class="col-xs-3">
                 <label class="" for="usr">Motor:</label>
             </div>
@@ -161,16 +161,17 @@
 <br>
 
 
-<div  class="table-responsive" style="text-align:right; padding-right:30px;">
+
+<div  class="table-responsive" style="text-align:right;">
 	<p id="DispTotal" style="font-weight: bold; font-size:15px; "></p>
 </div>
 
 
 <table id="tableBody"  data-toggle="table"></table>
 
-<div  class="table-responsive" style="text-align:center; padding-right:30px;">
+<div  class="table-responsive" style="text-align:center; padding-right:30px; padding-bottom:20px;">
 <br>
         <button type="button" id="savePartes" class="btn btn-default">Guardar</button>
-        <button type="button" id="savePartesS" class="btn btn-default">Guardar y Salir</button>
+        <!--  <button type="button" id="savePartesS" class="btn btn-default">Guardar y Salir</button>-->
 </div>
 <%@include file="footer.jsp"%>

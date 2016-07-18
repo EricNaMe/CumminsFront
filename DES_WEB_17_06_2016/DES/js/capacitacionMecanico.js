@@ -271,25 +271,25 @@ function cargarTablas(id) {
                 }]*/
             columns: [{
                 field: 'no',
-                title: 'No.',
+                title: 'No. Promotion',
                 type: 'text',
                 align: 'center',
                 valign: 'middle'
             }, {
                 field: 'nombre',
-                title: 'Nombre',
+                title: 'T&eacute;cnico',
                 type: 'text',
                 align: 'center',
                 valign: 'middle'
             }, {
                 field: 'status',
-                title: 'Estatus',
+                title: 'Puesto',
                 type: 'text',
                 align: 'center',
                 valign: 'middle'
             }, {
                 field: 'motor',
-                title: 'Motor',
+                title: 'Calificaci&oacute;n',
                 type: 'text',
                 align: 'center',
                 valign: 'middle'

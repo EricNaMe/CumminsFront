@@ -30,7 +30,7 @@ $(function() {
             }]
     });
 	*/
-	ShowTotal();
+	//ShowTotal();
 	
     $('#tableQuejasCatalogo').bootstrapTable({
         dataType: 'json',
@@ -95,7 +95,7 @@ $(function() {
                 sortable: true
             }, {
                 field: 'Ponderacion',
-                title: '% Ponderaci&oacute;n',
+                title: '% <BR>Ponderaci&oacute;n',
                 align: 'center',
                 sortable: true,
                 valign: 'middle',
@@ -106,7 +106,7 @@ $(function() {
                     url: 'GuardarQuejaCatalogo',
                     type: 'text',
                     success: function(response, newValue) {
-                    	ShowTotal();
+                    	//ShowTotal();
                     		//$('#tableTotal').bootstrapTable('refresh');
                     		//$('#tableTotal').bootstrapTable('refresh');
                     }
@@ -151,7 +151,7 @@ $(function() {
              
 	       	 //$('#tableTotal').bootstrapTable('refresh');
 	    	 //$('#tableTotal').bootstrapTable('refresh');
-	       	ShowTotal();
+	       	//ShowTotal();
         } else {
             alert("No ha introducido ninguna queja.");
         }
@@ -190,12 +190,12 @@ function eliminarRegistro(id) {
 
     });
     
-    ShowTotal();
+    //ShowTotal();
 	//$('#tableTotal').bootstrapTable('refresh');
 }
 
 
-
+/*
 function ShowTotal(){
   $.ajax({
       dataType: "text",
@@ -209,3 +209,4 @@ function ShowTotal(){
  	  }
   });
 }
+*/

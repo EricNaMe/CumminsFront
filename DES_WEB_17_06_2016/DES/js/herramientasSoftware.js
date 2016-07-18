@@ -29,7 +29,7 @@ $(function() {
             exportTypes:['excel', 'pdf'],
             exportDataType:'all',
             exportOptions: {
-                fileName: 'HerramientasEvaluadas'
+                fileName: 'Evaluacion de Herramientas'
             },
             formatLoadingMessage: function() {
                 return 'Cargando...';
@@ -65,61 +65,65 @@ $(function() {
                     field: 'idDealer',
                     title: 'IdDealer',
                     visible: false
-                },{
-                    field: 'clave',
-                    title: 'Identificaci&oacute;n',
-                    visible: true
                 }, {
                     field: 'delear',
                     title: 'Dealer',
                     type: 'text',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'evalPreEval',
                     title: 'Evaluaci&oacute;n<BR>Pre-Evaluaci&oacute;n',
                     type: 'text',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'seccion',
-                    title: 'Seccion',
+                    title: 'Secci&oacute;n',
                     type: 'text',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'porcMetaEsp',
-                    title: '% Meta Esp',
+                    title: '% Hta <BR>Especial',
                     type: 'text',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'porcMetaElec',
-                    title: '% Meta Elec',
+                    title: '% Hta <BR> Electr&oacute;nica',
                     type: 'text',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'porcLicenciaQSOL',
-                    title: '% Licencia QSOL',
+                    title: '% Licencia <BR> QSOL',
                     type: 'text',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'porcUsoQSOL',
-                    title: '% Uso QSOL',
+                    title: '% Uso <BR> QSOL',
                     type: 'text',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'porcTotal',
                     title: '% Total',
                     type: 'text',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'editar',
-                    title: 'Editar/Consultar',
+                    title: 'Editar <BR>Consultar',
                     align: 'center',
                     valign: 'middle',
                     type: 'text'

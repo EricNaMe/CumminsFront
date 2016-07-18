@@ -60,6 +60,12 @@ $(function() {
                     uniqueId: 'id_rel_matriz',
                     pagination: true,
                     maintainSelected: true,
+                    showExport: true,
+                    exportTypes:['excel', 'pdf'],
+                    exportDataType:'all',
+                    exportOptions: {
+                    fileName: 'Evaluacion de Herramientas'
+                    },
                     formatLoadingMessage: function() {
                         $('#headerModal').html('Solicitando informacion...');
                         $('#closeModal').css('display', 'none');

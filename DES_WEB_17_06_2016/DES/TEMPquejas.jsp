@@ -32,7 +32,7 @@
     }
 </style>
 
-<div class="col-xs-3 tabs-left"> <!-- required for floating -->
+<div class="menu-lateral col-xs-2 tabs-left"> <!-- required for floating -->
     <!-- Nav tabs -->
     <ul class="nav nav-tabs tabs-left cumminsTabs" >
         <%
@@ -50,7 +50,7 @@
     </ul>
 </div>
 
-<div class="col-xs-9" >
+<div class="menu-central col-xs-10" style=" text-align:center;" >
     <div class="tab-content" style="background-color: #ffffff;">
 
 

@@ -5,6 +5,7 @@
  */
 
 $(function() {
+	alert('ingresa a la funcion');
 	$('#capaVerificacion').addClass("active");
 	
 	$('#btnPrint').on('click', function() {
@@ -68,6 +69,7 @@ $(function() {
         beforeSend: function() {
         }
     }).done(function(e) {
+    	alert('obtiene DR');
         if (e === 'error') {
             alert('Ocurrio un error al cargar catalogo de distribuidores');
         } else {
@@ -78,6 +80,7 @@ $(function() {
                         .attr("value", json[i].value)
                         .text(json[i].text));
             }
+            alert('termina el llenado del dr');
         }
     }).fail(function(e) {
         $('#headerModal').html('Ocurrio un error al enviar la informacion');
@@ -122,6 +125,7 @@ $(function() {
         
         var strIdDealer = this.value;
         if (strIdDealer) {
+        	alert ('empieza la creacion de la tabla');
             $('#tableBody').bootstrapTable('destroy');
             $.ajax({
                 data: {id: strIdDealer, tipo: 'PreEval'},
@@ -176,13 +180,20 @@ $(function() {
                             align: 'center',
                             type: 'text',
                             valign: 'middle'
-                        }, {
+                        }/*, {
                             //field: 'cantMec',
                         	field: 'Mec_Cert',
                             title: 'Cantidad de Tecnicos',
                             align: 'center',
                             type: 'text',
                             valign: 'middle'
+                        }*/, {
+                            field: 'No_Req_Mec',
+                            title: 'T&eacute;cnicos<br>requeridos',
+                            align: 'center',
+                            type: 'text',
+                            valign: 'middle',
+                            visible: true
                         }]
                 });
                 $('#myModal').modal('hide');
@@ -246,7 +257,7 @@ $(function() {
                             valign: 'middle'
                         }, {
                             field: 'nomTec',
-                            title: 'Nombre Tecnico',
+                            title: 'Nombre Mec&aacute;nico',
                             align: 'center',
                             type: 'text',
                             valign: 'middle'
@@ -258,7 +269,7 @@ $(function() {
                             valign: 'middle'
                         }, {
                             field: 'selecOpc',
-                            title: 'Seleccionar una Opcion',
+                            title: 'Seleccionar una Opci&oacute;n',
                             align: 'center',
                             valign: 'middle',
                             formatter: 'formatterBoton'
@@ -372,7 +383,7 @@ $(function() {
 
 function formatterBoton(value, row) {
     return '<button class="btn btn-default" disabled type="button" style="border-color:#000000; color:#000000;">Verificado</button>&nbsp;&nbsp;' +
-            '<button class="btn col-md-offset-4 btn-default" disabled type="button" style="border-color:#000000; color:#000000;">Dar de baja</button>';
+            '<button class="btn col-md-offset-1 btn-default" disabled type="button" style="border-color:#000000; color:#000000;">Dar de baja</button>';
 }
 
 
@@ -448,13 +459,13 @@ function cargarTablaJefeTaller(sp_code){
             }, {
                 field: 'porcPosible',
                 title: '% Posible',
-                visible: true,
+                visible: false,
                 align: 'center',
                 valign: 'middle'
             }, {
                 field: 'porcObtenido',
                 title: '% Obtenido',
-                visible: true,
+                visible: false,
                 align: 'center',
                 valign: 'middle'
             }]

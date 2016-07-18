@@ -21,6 +21,14 @@ $(function() {
             emptytext: '-',
             data: json.data,
             pagination: true,
+            //----------------------------
+            showExport: true,
+            exportTypes:['excel', 'pdf'],
+            exportDataType:'all',
+            exportOptions: {
+                fileName: 'Motores'
+            },
+            //----------------------------
             idField: 'ID_PERFIL_DEALER',
             uniqueId: 'ID_PERFIL_DEALER',
             search: true,
@@ -64,7 +72,7 @@ $(function() {
                     visible: false
                 },{
                     field: 'clave',
-                    title: 'Identificaci&oacute;n',
+                    title: 'Evaluaci&oacute;n <BR> Pre-Evaluaci&oacute;n',
                     visible: true,
                     align: 'center',
                     valign: 'middle'
@@ -88,22 +96,23 @@ $(function() {
                     valign: 'middle'
                 }, {
                     field: 'matriz',
-                    title: 'Motor',
+                    title: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Motor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
                 }, {
                     field: 'noMecanicos',
-                    title: 'No. Mec&aacute;nicos',
+                    title: 'No. <BR>Mec&aacute;nicos',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
                 }, {
                     field: 'porcObtenido',
-                    title: 'Porcentaje Obtenido',
+                    title: '% <BR> Obtenido',
                     type: 'text',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    visible:false	
                 }, {
                     field: 'editar',
                     title: 'Editar/Consultar',

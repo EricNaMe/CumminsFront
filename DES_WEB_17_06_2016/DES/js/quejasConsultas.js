@@ -90,7 +90,7 @@ $(function() {
                     valign: 'middle'
                 }, {
                     field: 'editar',
-                    title: 'Editar/Consultar',
+                    title: 'Editar <BR>Consultar',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'

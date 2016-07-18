@@ -5,6 +5,13 @@
 
 <script src="js/MatrizHerramientas.js"></script>
 <script src="js/validaciones.js"></script>
+  <script language="JavaScript">
+  window.onbeforeunload = confirmExit;
+  function confirmExit()
+  {
+    return "¿Quieres salir de esta pagina? es posible que los cambios no se guarden";
+  }
+</script>
  <%
             if((String)session.getAttribute("bandLog")=="true"){
         %>
@@ -28,7 +35,7 @@
  <%
             }
  %>
-<div class="table-responsive" >
+<div style=""class="table-responsive" >
     <div class="container-body">
         <div class="table-responsive">
             
@@ -36,20 +43,21 @@
                 <input type="hidden" name="idMatriz" id="idMatriz">
                 <input type="hidden" name="matriz" id="matriz">
                	<br>  
-	            	<h1 style="font-family: arial; font-size: 18px; font-weight: bold; text-align: center;">Herramientas agrupadas</h1>
+	            	<h1 class="titulo-plantilla" style="font-family: arial; font-weight: bold; text-align: center;">Herramientas Agrupadas</h1>
 				<br><br>
                 <%@include file="CTRL_FeDrDealer.jsp"%>
             </form>
             
-            <br><br><br><br><br>
+            <br><br>
         </div>
-        <div class="table-responsive">
+        <div style="text-align:center;"class="col-md-12 table-responsive">
             <table id="tableBody" data-toggle="table">
             </table><br>
             <button type="button" class="btn btn-default" id="consultar">Consultar</button>
             <button type="button" class="btn btn-default" id="atras">Cancelar</button>
             <button type="button" id="guardarBtn" class="btn btn-default">Guardar</button>
             <button type="button" id="guardarBtnS" class="btn btn-default">Guardar y Salir</button>
+            <br><br><br><br>
         </div>
     </div>
 </div>

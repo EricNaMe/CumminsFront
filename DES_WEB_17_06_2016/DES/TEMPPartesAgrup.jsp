@@ -3,8 +3,10 @@
 %>
 
 <%@include file="TEMPpartes.jsp"%>
+
 <script src="js/matriz.js"></script>
  <script src="js/validaciones.js"></script>
+
  
  <script>
  $(document).ready(function() {
@@ -26,20 +28,27 @@
             <input type="hidden" name="matriz" id="matriz">
  
             <br>
-    	<h1 style="font-family: arial; font-size: 18px; font-weight: bold; text-align: center;">Partes agrupadas</h1>
+    	<h1 class="titulo-plantilla" style="font-family: arial; font-weight: bold; text-align: center;">Partes agrupadas</h1>
 			<br><br>
 			
           <%@include file="CTRL_FeDrDealer.jsp"%>
             
-        </form><br><br><br>
-        <div class="table-responsive">
+        </form><br>
+        <div style="text-align:center;" class="table-responsive col-sm-11">
+        	<div class="row">
             <label for="tableBody">Motores Agrupados</label>
+            </div>
+            <div style="margin-bottom:10px;" class="col-sm-12">
             <table id="tableBody" data-toggle="table" >
-            </table><br>
+            </table>
+            </div><br>
+            <div class="row">
             <button type="button" class="btn btn-default" id="consultar">Consultar</button>
             <button type="button" class="btn btn-default" id="atras">Cancelar</button>
             <button type="button" class="btn btn-default" id="guardar">Guardar</button>
             <button type="button" class="btn btn-default" id="guardarS">Guardar y Salir</button>
+            
+            </div>
         </div>
     </div>
 </div>

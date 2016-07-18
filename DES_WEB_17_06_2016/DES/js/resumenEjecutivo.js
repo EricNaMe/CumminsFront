@@ -115,7 +115,7 @@ function obtenerInfo(id){
                 $('#dealer5').val(json[i].dealer5);
                 cargarDR(json[i].dr);
                 cargarDealers(json[i].dr,json[i].dealer);
-                cargarTablas(json[i].dealer, json[i].tipoEval, json[i].revision, json[i].anio);
+                cargarTablas(json[i].dealer, json[i].revision, json[i].tipoEval, json[i].anio);
             }
         }
     }).fail(function(e) {
@@ -124,11 +124,12 @@ function obtenerInfo(id){
     });
 }
 
-function cargarTablas(id, tipoEval, revision, anio){
-    var Content = '<table>';
+function cargarTablas(id, revision, tipoEval, anio){
+	alert('carga la tabla');
+    var Content = '<table border=1>';
     var Datos = false;
 	$.ajax({
-        data: {idDealer: id, revision: tipoEval, tipoEval: revision, anio: anio},
+        data: {idDealer: id, revision:revision , tipoEval: tipoEval, anio: anio},
         dataType: "text",
         url: "ResumenEjecutivo",
         method: "POST",
@@ -138,17 +139,56 @@ function cargarTablas(id, tipoEval, revision, anio){
         if (e === 'error') {
             alert('Ocurrio un error al cargar los datos');
         } else {
+        	alert('empieza el for para barrido de datos');
             json = $.parseJSON(e);
+        	alert('numro de informacion a barrer'+json.length);
             for (var i = 0; i < json.length; i++) {
             	if (i == 0) {
-                    Content += '<tr class="Cabecera" style="background-color:black; border-color:white; color:white;" >';
-                    Content += '<td rowspan="2"  border:1px solid #FFFFFF; >PRODUCTO</td> ';
+            		alert('crea el encabezado');
+            		
+            	
+            		Content += '<tr>';
+            			Content += '<td class="text-center" >&nbsp;&nbsp;MOTOR&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;NIVEL OBTENIDO&nbsp;&nbsp;</td>';
+            			Content += '<td></td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;PARTES&nbsp;&nbsp;</td>';
+            			Content += '<td colspan="3" class="text-center">&nbsp;&nbsp;CAPACITACION&nbsp;&nbsp;</td>';
+            			Content += '<td colspan="4" class="text-center">&nbsp;&nbsp;HERRAMIENTAS Y SOFTTWARE&nbsp;</td>';
+            			Content += '<td colspan="2" class="text-center">&nbsp;&nbsp;EFICIENCIA&nbsp;&nbsp;</td>';
+            			Content += '<td></td>';
+            			Content += '<td></td>';
+            		Content += '</tr>';
+            		Content += '<tr>';
+            			Content += '<td></td>';
+            			Content += '<td></td>';
+            			Content += '<td></td>';
+            			Content += '<td></td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Tecnicos&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Admin. Garantias&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Jefe de Taller&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Taller&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Elec.&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Uso QSOL&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Licencia QSOL&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Grantias&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Rescates&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;% Reducido&nbsp;&nbsp;</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;% Promedio Ponderacion&nbsp;&nbsp;</td>';
+            		Content += '</tr>';
+            		
+            		
+            		console.log(json);
+            		/*
+            		
+                    Content += '<tr class="Cabecera" style="background-color:black; border-bottom-color: white; border-style: solid; border-color:white; color:white;">';
+                    Content += '<td rowspan="2"   border:1px solid #FFFFFF;  >PRODUCTO</td> ';
                     Content += '<td rowspan="2" class="text-center" >NIVEL OBTENIDO</td>';
                     Content += '<td rowspan="2" class="text-center"  >PARTES</td>';
                     Content += '<td class="text-center"  colspan="4">HERRAMIENTA</td> ';
                     Content += '<td class="text-center"  colspan="3" >CAPACITACI&Oacute;N</td>';
                     Content += '<td class="text-center" style="text-align: center;"  colspan="2">EFICIENCIA</td>';
                     Content += '<td rowspan="2">QUEJAS</td>';
+                    Content += '<td rowspan="2">Total</td>';
                     Content += '</tr>';
 
                     Content += '<tr class="Cabecera" style="background-color:black; border-bottom-color: white; border-style: solid; border-color:white; color:white;">';
@@ -163,7 +203,143 @@ function cargarTablas(id, tipoEval, revision, anio){
                     Content += '<td>Garant&iacute;as</td>';
                     Content += '<td>Rescates</td>';
                     Content += '</tr>';
-                }       
+                    */
+                }    
+            	alert('crea el cuerpo');
+            		Content += '<tr>';
+            		
+            			Content += '<td class="text-center" rowspan="3">'+json[i].producto+'</td>';
+            			Content += '<td class="text-center" rowspan="3">'+json[i].nivContenido+'</td>';
+            			Content += '<td class="text-center">&nbsp;&nbsp;Cal. X Mod. Obtenido&nbsp;&nbsp;</td>';
+            			//Validacion si el modulo de partes es menor a 80%
+            			if (json[i].P_PARTES < 80) {
+            				Content += '<td class="text-center" bgcolor="red">' + json[i].P_PARTES + '</td>';
+            			}
+            			else{
+            				Content += '<td class="text-center">' + json[i].P_PARTES + '</td>';
+            			}
+            			//Validacion si el modulo de tecnicos es menor a 80%
+            			if (json[i].C_MECANICO < 80) {
+            				Content += '<td class="text-center" bgcolor="red">' + json[i].C_MECANICO + '</td>';
+            			}
+            			else{
+            				Content += '<td class="text-center">' + json[i].C_MECANICO + '</td>';
+            			}
+            			//Validacion si el modulo de admin garantias es menor a 80%
+            			if (json[i].C_ADMIN_GARANTIAS < 80) {
+            				Content += '<td class="text-center" bgcolor="red">' + json[i].C_ADMIN_GARANTIAS + '</td>';
+            			}
+            			else{
+            				Content += '<td class="text-center">' + json[i].C_ADMIN_GARANTIAS + '</td>';
+            			}
+            			
+            			Content += '<td class="text-center">' + json[i].C_JEFETALLER+ '</td>';
+            			Content += '<td class="text-center">' + json[i].H_INDIVIDUAL + '</td>';
+            			Content += '<td class="text-center">' + json[i].H_ELECTRONICA + '</td>';
+            			Content += '<td class="text-center">' + json[i].H_USQSOL + '</td>';
+            			Content += '<td class="text-center">' + json[i].H_EVALUAQSOL+ '</td>';
+            			
+            			//Validacion si el modulo garantias es menor a 80%
+            			if (json[i].E_GARANTIAS < 80) {
+            				Content += '<td class="text-center" bgcolor="red">' + json[i].E_GARANTIAS+ '</td>';
+            			}
+            			else{
+            				Content += '<td class="text-center">' + json[i].E_GARANTIAS+ '</td>';
+            			}
+            			//Validacion si el modulo rescates es menor a 80%
+            			if (json[i].E_RESCATES < 80) {
+            				Content += '<td class="text-center"  bgcolor="red">' + json[i].E_RESCATES+ '</td>';
+            			}
+            			else{
+            				Content += '<td class="text-center">' + json[i].E_RESCATES+ '</td>';
+            			}
+            			        			
+
+            		Content += '</tr>';
+            		
+            		Content += '<tr>';
+            		
+        				//Content += '<td></td>';
+        				//Content += '<td></td>';
+        				Content += '<td class="text-center">&nbsp;&nbsp;Max. Posible&nbsp;&nbsp;</td>';
+        				Content += '<td class="text-center">' + json[i].PART_MAX + '</td>';
+        				Content += '<td class="text-center">' + json[i].CAPMEC_MAX + '</td>';
+        				Content += '<td class="text-center">' + json[i].CAPADM_MAX + '</td>';
+        				Content += '<td class="text-center">' + json[i].CAPJT_MAX + '</td>';
+        				Content += '<td class="text-center">' + json[i].HERESP_MAX + '</td>';
+        				Content += '<td class="text-center">' + json[i].HERELEC_MAX + '</td>';
+        				Content += '<td class="text-center">' + json[i].HERUSQSOL_MAX + '</td>';
+        				Content += '<td class="text-center">' + json[i].HEREVQSOL_MAX + '</td>';
+        				Content += '<td class="text-center">' + json[i].EFIGAR_MAX + '</td>';
+        				Content += '<td class="text-center">' + json[i].EFIRESC_MAX + '</td>';
+
+        		    Content += '</tr>';
+        		    Content += '<tr>';
+            		
+    					Content += '<td class="text-center">Detalle</td>';
+    					Content += '<td class="text-center">' + json[i].T_PARTES + '</td>';
+    					Content += '<td class="text-center">' + json[i].T_CAPMEC + '</td>';
+    					Content += '<td class="text-center">' + json[i].T_CAPADM + '</td>';
+    					Content += '<td class="text-center">' + json[i].T_CAPJT + '</td>';
+    					Content += '<td class="text-center">' + json[i].T_HERESP + '</td>';
+    					Content += '<td class="text-center">' + json[i].T_HERELEC + '</td>';
+    					Content += '<td class="text-center">' + json[i].T_HERUSQSOL + '</td>';
+    					Content += '<td class="text-center">' + json[i].T_HEREVQSOL + '</td>';
+    					Content += '<td class="text-center">' + json[i].T_EFIGAR + '</td>';
+    					Content += '<td class="text-center">' + json[i].T_EFIRESC + '</td>';
+    					
+    				Content += '</tr>';
+    				
+    				Content += '<tr>';
+    				
+						Content += '<td class="text-center" colspan="3" bgcolor="BAB3B3"><B>Resultado</B></td>';
+						//Validacion si el modulo de partes es menor a 80%
+            			if (json[i].P_PARTES < 80) {
+            				Modulo1=0;
+            				Content += '<td class="text-center" bgcolor="red">0</td>';
+            			}
+            			else{
+            				Content += '<td class="text-center" bgcolor="BAB3B3">' + json[i].T_PARTES + '</td>';
+            				Modulo1=json[i].T_PARTES;
+            			}
+						///////
+            			if (json[i].C_MECANICO < 80 || json[i].C_ADMIN_GARANTIAS < 8) {
+            				Content += '<td colspan="3" class="text-center" bgcolor="red">0</td>';
+            				Modulo2=0;
+            			}
+            			else{
+            				Modulo2=parseInt(json[i].T_CAPMEC)+parseInt(json[i].T_CAPADM)+parseInt(json[i].T_CAPJT);
+            				Content += '<td colspan="3" class="text-center" bgcolor="BAB3B3">'+ Modulo2 +'</td>';
+            			}
+            		    ///////
+            			if (json[i].H_INDIVIDUAL < 80) {
+            				Content += '<td colspan="4" class="text-center" bgcolor="red">0</td>';
+            				Modulo3=0;
+            			}
+            			else{
+            				Modulo3=parseInt(json[i].T_HERESP)+parseInt(json[i].T_HERELEC)+parseInt(json[i].T_HERUSQSOL)+parseInt(json[i].T_HEREVQSOL);
+            				Content += '<td colspan="4" class="text-center" bgcolor="BAB3B3">' + Modulo3 + '</td>';
+            			}
+            		///////
+            			if (json[i].E_GARANTIAS < 80 || json[i].E_RESCATES < 8) {
+            				Content += '<td colspan="2" class="text-center" bgcolor="red">0</td>';
+            				Modulo4=0;
+            			}
+            			else{
+            				Modulo4=parseInt(json[i].T_EFIGAR)+parseInt(json[i].T_EFIRESC);
+            				Content += '<td colspan="2" class="text-center" bgcolor="BAB3B3">' + Modulo4 + '</td>';
+            			}
+					
+						Content += '<td class="text-center" bgcolor="BAB3B3">' + json[i].quejas + '</td>';
+						Modulo5=
+						Total=Modulo1+Modulo2+Modulo3+Modulo4;
+			            Content += '<td class="text-center" bgcolor="BAB3B3">' + Total + '</td>';
+						
+					
+					Content += '</tr>';
+            		
+            		/*
+            	
                 Content += '<tr>';
                 Content += '<td rowspan="2" >' + json[i].producto + '</td>';
                 Content += '<td rowspan="2" class="text-center" >' + json[i].nivContenido + '</td>';
@@ -172,6 +348,7 @@ function cargarTablas(id, tipoEval, revision, anio){
                 Content += '<td class="text-center"  colspan="3" >' + json[i].capacitacion + '</td>';
                 Content += '<td class="text-center" style="text-align: center;"  colspan="2">' + json[i].eficiencia + '</td>';
                 Content += '<td rowspan="2">' + json[i].quejas + '</td>';
+                Content += '<td rowspan="2">' + json[i].total + '</td>';
                 Content += '</tr>';
                 Content += '<tr>';
                 Content += '<td>' + json[i].taller + '</td>';
@@ -185,13 +362,20 @@ function cargarTablas(id, tipoEval, revision, anio){
                 Content += '<td>' + json[i].admonGtias + '</td>';
                 Content += '<td>' + json[i].garantias + '</td>';
                 Content += '<td>' + json[i].rescates + '</td>';
+             
                 Content += '</tr>';
+                */
                 Datos = true;
                 $('#pTotal').val(json[i].pTotal);
                 $('#hTotal').val(json[i].hTotal);
                 $('#cTotal').val(json[i].cTotal);
                 $('#eTotal').val(json[i].eTotal);
                 $('#qTotal').val(json[i].qTotal);
+                $('#totalcal').val(json[i].total);
+                
+                console.log('&&&&&&&&&&&&&&&&&&&&&&&&&');
+                console.log(json[i].jefeT);
+                console.log('&&&&&&&&&&&&&&&&&&&&&&&&&');
             }
             if (Datos) {
                 Content += '</table>';

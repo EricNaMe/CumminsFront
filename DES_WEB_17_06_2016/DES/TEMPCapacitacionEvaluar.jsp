@@ -35,12 +35,12 @@
 
         <br></br></br>
 
-        <div class="table-responsive">
+        <div style="margin-top:-30px; text-align:center;" class="table-responsive">
             <div class="container-body" style="margin: 20px">
                 <div class="container-body col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <form class="form-horizontal" role="form">
                         <div class="table-responsive" >
-                         	<label for="tableBody" style="font-family: arial; font-size: 18px; font-weight: bold;">Consulta de evaluaciones</label>
+                         	<label class="titulo-plantilla" for="tableBody" style="font-family: arial; font-weight: bold;">Consulta de Evaluaciones</label>
                             <table id="tableBody" data-toggle="table">
                             </table>
                         </div> 

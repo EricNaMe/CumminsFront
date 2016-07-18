@@ -172,13 +172,13 @@ function cargarTablas(spCode, fechaIni, fechaFin, fechaEval){
 	                type: 'text'
 	            }, {
 	                field: 'garantia',
-	                title: 'Garantia',
+	                title: 'Garant&iacute;a',
 	                align: 'center',
 	                valign: 'middle',
 	                type: 'text'
 	            }, {
 	                field: 'politica',
-	                title: 'Politica',
+	                title: 'Pol&iacute;tica',
 	                align: 'center',
 	                valign: 'middle',
 	                type: 'text',
@@ -235,19 +235,15 @@ function cargarTablas(spCode, fechaIni, fechaFin, fechaEval){
 	                //title: 'Topico',
 	                type: 'text'
 	            }, {
-	                field: 'Rangos',
-	                title: 'Rangos',
-	                type: 'text',
-	                visible: false
-	            }, {
 	                field: 'posibles',
-	                title: 'Posibles<img class="imagen" src="img/eficiencia.png"/>',
+	                //title: 'Posibles<img class="imagen" src="img/eficiencia.png"/>',
+	                title: 'Posibles',
 	                align: 'center',
 	                valign: 'middle',
 	                type: 'text'
 	            }, {
 	                field: 'Garantias',
-	                title: 'Garantias',
+	                title: 'Garant&iacute;as',
 	                align: 'center',
 	                valign: 'middle',
 	                type: 'text'
@@ -258,6 +254,11 @@ function cargarTablas(spCode, fechaIni, fechaFin, fechaEval){
 	                valign: 'middle',
 	                type: 'text',
 	                visible: false
+	            }, {
+	                field: 'Rangos',
+	                title: 'Rangos',
+	                type: 'text',
+	                visible: true
 	            }]
 	    });
 	    //ShowTotal(spCode, fechaIni, fechaFin, fechaEval);
@@ -311,23 +312,25 @@ function cargarTablas(spCode, fechaIni, fechaFin, fechaEval){
 	            },
 	            columns: [{
 	                    field: 'fecha_captura',
-	                    title: 'Fecha de captura',
+	                    title: 'Fecha de Captura',
 	                    type: 'text'
 	                }, {
 	                    field: 'folio',
 	                    title: 'Folio',
 	                    align: 'center',
 	                    valign: 'middle',
-	                    type: 'text'
+	                    type: 'text',
+	                    sortable: true
 	                }, {
 	                    field: 'tipo',
 	                    title: 'Tipo de reclamo',
 	                    align: 'center',
 	                    valign: 'middle',
-	                    type: 'text'
+	                    type: 'text',
+	                    sortable: true
 	                }, {
 	                    field: 'monto',
-	                    title: 'Monto',
+	                    title: 'Monto(USD)',
 	                    align: 'center',
 	                    valign: 'middle',
 	                    type: 'text'

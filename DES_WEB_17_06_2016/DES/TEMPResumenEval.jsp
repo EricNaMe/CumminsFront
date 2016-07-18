@@ -5,14 +5,17 @@
         <script src="js/resumenEval.js"></script>
 
  
-        <div class="table-responsive" style="margin: 20px">
-            <div class="container-body">
-                <div class="table-responsive">
-                    <label for="tableResumen" style="font-family: arial; font-size: 18px; font-weight: bold;">Resumen ejecutivo</label>
+ 		<div style="text-align:center; margin-top:3%;" class="col-md-12">
+ 			<label class="titulo-plantilla" for="tableResumen" style="font-family: arial; font-weight: bold;">Resultado de Evaluación</label>
+ 		</div>
+ 		
+ 		<div class="col-md-12">
+        	<div class="table-responsive" >                     
+                    
                     <table id="tableResumen">
-                    </table><br>
-                </div>
-            </div>
+                    </table>               
+           
+       		 </div>
         </div>
 
   <%@include file="footer.jsp"%>

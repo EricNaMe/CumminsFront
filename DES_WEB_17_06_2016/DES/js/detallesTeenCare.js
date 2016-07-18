@@ -381,6 +381,8 @@ $(function() {
             jsonBody = JSON.stringify($('#tableBody').bootstrapTable('getData')).replace(/\\r/g, '');
             jsonDR = JSON.stringify($('#tableDealers').bootstrapTable('getSelections'));
             
+            alert (jsonDR+"  AQUIIIIIII");
+            
             data = '{"header":' + jsonHeader + ', "data":' + jsonBody + ', "drSel":' + jsonDR +'}';
             
             

@@ -75,46 +75,53 @@
  		<%} %>
 
 <br>
-<div style=" position:absolute; top:20px; left:80px; height:140%; width:90%;">
-    <h1 style="font-family: arial; font-size: 18px; font-weight: bold; text-align: center;">Evaluaci&oacute;n mec&aacute;nicos</h1>
+
+    <h1 class="titulo-plantilla" style="font-family: arial; font-weight: bold; text-align: center;">Evaluaci&oacute;n Mec&aacute;nicos</h1>
 	</br><br>
     <form name="myform" id="myform">
         <%@include file="CTRL_FeDrDealer.jsp"%>
 		<input type="hidden" name="hdnTotal" id="hdnTotal"/>
-        </br>  </br>  </br> </br>  </br>  </br> </br>  </br>  </br>
-        <div>
-            <div class="col-md-9" >
-                <label style="position:relative; top:-40px;" class="" for="qtyMecRegis"  >Cantidad de mecánicos registrados en sistema:</label>
-                <input style="position:relative;width:70px; left:500px; top:-45px;"  name="qtyMecRegis" id="qtyMecRegis" type="text"  class="col-md-2 form-control" readonly  >
+        </br>  </br>   
+        <div class="col-sm-12">
+       
+            <div class="col-md-6" >
+            	<div class="col-md-9">
+                <label style="for="qtyMecRegis"  >Cantidad de mecánicos registrados en sistema:</label>
+                </div>
+                <div class="col-md-2">
+                <input style=""  name="qtyMecRegis" id="qtyMecRegis" type="text"  class="col-md-2 form-control" readonly  >
+           		</div>
             </div>
 
-        </div>
-        <br></br></br>
-        <div>
-            <div class="col-md-9" >
-                <label style="position:relative;top:-40px;" class="" for="qtyAyudaReg">Cantidad de ayudantes de mecánicos registrados en sistema:</label>
-                <input style="position:relative;width:70px; left:500px; top:-45px;" type="text" name="qtyAyudaReg" id="qtyAyudaReg" class="col-md-2 form-control" id="usr" readonly >
+       
+            <div class="col-md-6" >
+            	<div class="col-md-10">
+                <label  class="" for="qtyAyudaReg">Cantidad de ayudantes de mecánicos registrados en sistema:</label>
+                </div>
+                <div class="col-md-2">
+                <input style=" type="text" name="qtyAyudaReg" id="qtyAyudaReg" class="col-md-2 form-control" id="usr" readonly >
+           		</div>
             </div>
         </div>    
         </br>  </br>  </br>
     </form>
-    <div>
-        <!--<span ><a style="text-decoration: none;"><i><b>Nota: Si la cantidad de mecánicos y/o ayudantes de mecánicos no es correcta, favor de actualizar en base de datos de Promotion y en el perfil del Dealer para que la cantidad mínima de mecánicos requeridos sea correcta.</b></i> </a></span>-->
-		<span ><a style="color:black;text-decoration: none; background-color:#FFFFFF;"><b>Nota:</b> Si la cantidad de mecánicos y/o ayudantes de mecánicos no es correcta, favor de actualizar en base de datos de Promotion y en el perfil del Dealer para que la cantidad mínima de mecánicos requeridos sea correcta.</a></span>
+    <div class="col-md-10" style="border:1px solid #ddd; margin-left:60px;">       
+		<span ><a style="color:#333;text-decoration: none; font-size:12px;"><b>Nota:</b> Si la cantidad de mecánicos y/o ayudantes de mecánicos no es correcta, favor de actualizar en base de datos de Promotion y en el perfil del Dealer para que la cantidad mínima de mecánicos requeridos sea correcta.</a></span>
     </div>
 
-
-
-    <div style="position:relative; display:inline-block;">
-        <div class="table-responsive" style='position:relative;  height: 190px; top:30px; width:400px;' class="container" >
+ </br>  </br>  </br>
+	<div class="col-md-12">
+    <div class="col-md-6" style=" display:none;">
+        <div class="table-responsive" style=' max-height: 190px; width:400px;'  >
             <table id="tableQtyMecanicos" align="right" data-toggle="table"></table>
         </div>
     </div>
 
-    <div style="position:relative; display:inline-block;">
-        <div class="table-responsive" style='position:relative;  height: 190px; top:30px; ' >
+    <div class="col-md-8 col-md-offset-2" style=" display:inline-block;">
+        <div class="table-responsive" style='max-height: 190px;  ' >
             <table id="tableMotoresCapacitaMec" align="right" data-toggle="table"></table>
         </div>
+    </div>
     </div>
 
     <br></br>
@@ -125,18 +132,21 @@
         </div>
     </div>-->
 
-    </br>
-    <div style="position:relative; left:250px; display:inline-block;">
-        <div class="table-responsive container" style='position:relative;  height: 190px; top:30px; width:400px;' >
+    <br> </br>  <br></br>
+    <div class="col-md-12">
+    <div class="col-md-8 col-md-offset-2" style="margin-top:30px;  display:inline-block;">
+        <div class="table-responsive" style='  max-height: 190px;' >
             <table id="tableMecanicosCapacitaMec" align="right" data-toggle="table"></table>
         </div>
     </div>
+    </div>
     <br></br>
-    <div style="display:inline-block;">
+    <div class="col-md-12"style="margin-top:30px; margin-bottom:40px; display:inline-block; text-align:center;">
         <button  type="button" class="btn btn-default"  id="bGuardar">Guardar</button>
         <button  type="button" class="btn btn-default"  id="bGuardarS">Guardar y Salir</button>
     </div> 
-</div>
+    <br> </br>  <br></br> 
+
 
 
 <%@include file="footer.jsp"%>

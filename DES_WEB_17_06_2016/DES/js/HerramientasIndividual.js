@@ -275,9 +275,14 @@ function cargarDatos(spcode,matriz, tipo_eval, revision, anio) {
             uniqueId: 'id_rel_matriz',
             search: true,
             onPreBody: function() {
-
             },
             pagination: true,
+            showExport: true,
+            exportTypes:['excel', 'pdf'],
+            exportDataType:'all',
+            exportOptions: {
+                fileName: 'Evaluacion de Herramientas'
+            },
             formatLoadingMessage: function() {
                 $('#headerModal').html('Solicitando informacion...');
                 $('#closeModal').css('display', 'none');
@@ -285,6 +290,7 @@ function cargarDatos(spcode,matriz, tipo_eval, revision, anio) {
 
                 return 'Cargando...';
             },
+            
             formatRecordsPerPage: function(pageNumber) {
                 return pageNumber + ' registros por pagina';
             },
@@ -405,6 +411,11 @@ function cargarDatos(spcode,matriz, tipo_eval, revision, anio) {
                 }, {
                     field: 'comentarios',
                     title: 'Comentarios',
+                    align: 'center',
+                    valign: 'middle'
+                }, {
+                    field: 'matriz_name',
+                    title: 'Motor',
                     align: 'center',
                     valign: 'middle'
                 }]

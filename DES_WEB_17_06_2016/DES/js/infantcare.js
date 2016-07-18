@@ -73,6 +73,7 @@ function csvTojs2(csv) {
 
 var json;
 function PreviewText() {
+	$('#infantCareH').addClass("active");
     var oFReader = new FileReader();
     oFReader.readAsText(document.getElementById("csvFile").files[0]);
     oFReader.onload = function(oFREvent) {

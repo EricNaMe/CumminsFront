@@ -1,5 +1,6 @@
 
 
+
 var inlineLen;
 $(function() {
 	
@@ -38,6 +39,18 @@ $(function() {
 		//cargarZapit();
     });
     
+    $("#btnExport").click(function (e) {
+    	 window.open('data:application/vnd.ms-excel,' + encodeURIComponent(
+    	    		$('#totalDiv').html()
+    	    	));
+        e.preventDefault();
+    });
+    
+    
+    
+   
+    
+    
     $('#dr').on('change', function() {
         $('#mecReg').val('');
         $('#ayuMecReg').val('');
@@ -48,6 +61,7 @@ $(function() {
     });
     
     $('#calcularBbtn').click(function() {
+    	
     	if($('#dealer').val() != null && $('#dealer').val() != ''){
     		//cargarTablas($('#dealer').val());
     		
@@ -60,6 +74,7 @@ $(function() {
     });
     
     $('#guardarBtn').click(function() {
+    	cargarZapit();
     	if($('#contCal').val() != '' && $('#zapIt').val() != '' && $('#inlineTall').val() != ''){
     		if(!isNaN($('#contCal').val()) && !isNaN($('#zapIt').val()) && !isNaN($('#inlineTall').val())){
 		        json = JSON.stringify($('#myform').serializeArray());
@@ -212,6 +227,13 @@ function cargarTablas(spcode){
             checkboxHeader:false,
             rowStyle: 'rowselect',
             data: json,
+            showExport: true,
+            exportTypes:['excel', 'pdf'],
+            exportDataType:'all',
+            exportOptions: {
+                fileName: 'HerramientasEvaluadas'
+            },
+           
             /*
             onLoadSuccess: function( data ) {
             	
@@ -261,13 +283,13 @@ function cargarTablas(spcode){
                     valign: 'middle'
                 }, {
                     field: 'fecha_De_Expiracion',
-                    title: 'fecha De Expiracion',
+                    title: 'Fecha de Expiraci&oacute;n',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
                 }, {
                     field: 'solicitado_Por',
-                    title: 'solicitado Por',
+                    title: 'Solicitado por',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
@@ -387,7 +409,7 @@ function numberVal(e){
 
 
 function cargarZapit(){
-	
+
 	
 	$('#TableResult').css('display', '');
 	
@@ -424,7 +446,7 @@ function cargarZapit(){
 			var num =(insObt/inreq).toFixed(2);
 			num = num*0.45;
 			num = num * 100;
-			tot1 = num;
+			tot1 = num.toFixed(2);
 		}
 	}
 	$('#tot1').html(tot1 + '%');
@@ -440,7 +462,8 @@ function cargarZapit(){
 			var num =(inlObt/inreq).toFixed(2);
 			num = num*0.4;
 			num = num * 100;
-			tot2 = num;
+			tot2 = num.toFixed(2);
+			
 		}
 	}
 	$('#tot2').html(tot2 + '%');
@@ -456,7 +479,7 @@ function cargarZapit(){
 			var num =(calibObt/calibReq).toFixed(2);
 			num = num*0.1;
 			num = num * 100;
-			tot3 = num;
+			tot3 = num.toFixed(2);
 		}
 	}
 	$('#tot3').html(tot3 + '%');
@@ -473,13 +496,13 @@ function cargarZapit(){
 			var num =(zapitObt/zapitReq).toFixed(2);
 			num = num*0.05;
 			num = num * 100;
-			tot4 = num;
+			tot4 = num.toFixed(2);
 		}
 	}
 	$('#tot4').html(tot4 + '%');
 	
-	$('#tot5').html(tot4 + tot3+ tot2+ tot1);
-	$('#Total').val(tot4 + tot3+ tot2+ tot1);
+	$('#tot5').html(Number(tot4) + Number(tot3)+ Number(tot2)+ Number(tot1));
+	$('#Total').val(Number(tot4) + Number(tot3)+ Number(tot2)+ Number(tot1));
 	
 }
 
@@ -507,7 +530,7 @@ function guardarPCID(){
 }
 
 function rowselect(row, index){
-	if (row.status == false && row.editable=='N'){
+	if (row.status == false && row.editable=='N' ){
 		return {
 	        classes: 'disabledClass'
 	    };
@@ -517,3 +540,8 @@ function rowselect(row, index){
 	    };
 	}
 }
+
+
+
+
+

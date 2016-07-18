@@ -26,7 +26,7 @@
 <div class="table-responsive">
     <form role="myform" id="myform"> 
     		<br>  
-            <h1 style="font-family: arial; font-size: 18px; font-weight: bold; text-align: center;">Herramientas individual</h1>
+            <h1 class="titulo-plantilla" style="font-family: arial;  font-weight: bold; text-align: center;">Herramientas Individual</h1>
 			<br><br>
         
 		<%@include file="CTRL_FeDrDealer.jsp"%>
@@ -37,7 +37,7 @@
             <div class="col-xs-3">
                 <label class="" for="oem">OEM:</label>
             </div>
-            <div class="col-xs-9">
+            <div class="col-xs-9" style="margin-left:-20px;">
 
                 <input class="form-control"  name="oem" id="oem"  type="text" style="background-color:#ffffff; color:#000000"  readonly >
 
@@ -56,7 +56,7 @@
             </div>
         </div>-->
 
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-sm-offset-1">
             <div  class="col-xs-3">
                 <label class="" for="matriz">Motor:</label>
             </div>
@@ -68,12 +68,18 @@
         
 		<div id="status_eval"></div>
 		
-        <br><br><br><br>
+		<div  class="table-responsive" style="text-align:right; margin-top:30px; padding-right:30px;">
+    <p id="DispTotal" style="font-weight: bold; font-size:15px; "></p>
+</div>
 
+<table id="tableBody" data-toolbar="#toolbar" data-toggle="table"></table>
+		
+        <br><br>
 
+		<div style="text-align:center;"class="col-md-12;">
         <button type="button" id="guardarBtn" class="btn btn-default">Guardar</button>
         <button type="button" id="guardarBtnS" class="btn btn-default">Guardar y Salir</button>
-
+		</div>
         <input type="hidden" name="Total" id="Total">
     </form>
 </div>
@@ -82,6 +88,6 @@
     <p id="DispTotal" style="font-weight: bold; font-size:15px; "></p>
 </div>
 
-<table id="tableBody" data-toolbar="#toolbar" data-toggle="table"></table>
+
 
 <%@include file="footer.jsp"%>

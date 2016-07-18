@@ -239,6 +239,8 @@ function obtenerInfo(id) {
             json = $.parseJSON(e);
 
                var  i = 0;
+               	cargarDR(json[i].codigodr);
+               	cargarDealers(json[0].codigodr, json[0].sp_code );
             	$('#dr').val(json[i].codigodr);
             	$('#codigoDR').val(json[i].codigodr);
             	$('#codigoDeal').val(json[i].sp_code);
@@ -251,11 +253,15 @@ function obtenerInfo(id) {
                 $('#datepicker2').val(json[i].fechaini);
                 $('#datepicker3').val(json[i].fechafin);
                 
+                //console.log("#001: "+json[i].fechafin);
+                
                 if (json[i].placas != "" && json[i].placas != null){
 	                $('#placas').val(json[i].placas);
 	                aparece1();
 	                $("input[name=Pregunta1][value='Y']").prop("checked",true);
                 }
+                
+                //console.log("#002: "+json[i].fechafin);
                 
                 if ((json[i].marca != "" && json[i].marca != null) || (json[i].noserie !="" && json[i].noserie != null)){
                 	aparece2(); 
@@ -264,6 +270,8 @@ function obtenerInfo(id) {
 	                $("input[name=Pregunta2][value='Y']").prop("checked",true);
                 }
                
+                //console.log("#003: "+json[i].fechafin);
+                
                 if (json[i].nocel != "" && json[i].nocel != null){
                 	aparece3();
                 	$('#noCelu').val(json[i].nocel);
@@ -275,20 +283,15 @@ function obtenerInfo(id) {
                 	$('#inLine').val(json[i].inline);
 	               // $("input[name=Pregunta7][value='si']").prop("checked",true);
                 }
-                
-                
-                cargarDR(json[i].codigodr);
-                cargarDealers(json[0].codigodr, json[0].sp_code );
-                
             	
             	strRadios = json[0].radios.split(",");
             	
-            	
             	for (var j=0; j<6 ; j++){
-            		console.log(strRadios[j]);
+            		//console.log(strRadios[j]);
             		$("input[name=Pregunta" + (j+1) +"][value='"+strRadios[j] +"']").prop("checked",true);
-            		
             	}
+            	
+
             	
             	if (strRadios[4]=='Y'){
             		aparece5();
@@ -297,12 +300,18 @@ function obtenerInfo(id) {
             	}
             	
             	var totSum;   	
+            	
+            	var fechaini = json[0].fechaini;
+            	var sp_code= json[0].sp_code;
+            	var fechafin=json[0].fechafin;
+            	var codigodr=json[0].codigodr;
+            	
             	setTimeout(function() {
             		totSum =suma();
-            		console.log(totSum);
-            		obtenerEficiencia(json[i].sp_code,json[i].fechaini,json[i].fechafin,json[i].codigodr,totSum);
-                	ObtenerRespNoDisp(json[i].sp_code,json[i].fechaini,json[i].fechafin,json[i].codigodr);
-                	ObteneRescatesExced(json[i].sp_code,json[i].fechaini,json[i].fechafin,json[i].codigodr);
+            		//console.log(totSum);
+            		obtenerEficiencia(sp_code,fechaini,fechafin,codigodr,totSum);
+                	ObtenerRespNoDisp(sp_code,fechaini,fechafin,codigodr);
+                	ObteneRescatesExced(sp_code,fechaini,fechafin,codigodr);
             	}, 2000);
             	
                 
@@ -385,7 +394,7 @@ function cargarTablaPCID(strIdDealer,strFechaIni,strFechaFin){
                      type: 'text'
                  }, {
                      field: 'Valido_Auditorias',
-                     title: 'V&aacute;lido por auditor&iacute;a',
+                     title: 'V&aacute;lido para Auditor&iacute;a',
                      align: 'center',
                      valign: 'middle',
                      type: 'text'
@@ -425,6 +434,7 @@ function obtenerEficiencia(strIdDealer,strFechaIni,strFechaFin,dr,suma){
          }
      }).done(function(e) {
          json = $.parseJSON(e);
+         console.log(e);
          var len= json.data.length;
          
          
@@ -489,6 +499,9 @@ function obtenerEficiencia(strIdDealer,strFechaIni,strFechaFin,dr,suma){
          });
          
         
+         console.log(json.data[len-1].PorcLogradoRes);
+         console.log(json.data[len-2].PorcLogradoRes);
+         
          
          total = Number(json.data[len-1].PorcLogradoRes) + Number(json.data[len-2].PorcLogradoRes);
          //alert(total);
@@ -698,7 +711,7 @@ function guardarPCID(){
 
 
 function rowselect(row, index){
-	if (row.status == false && row.editable=='N'){
+	if (row.status == false && row.editable=='N' && row.Valido_Auditorias =='NO'){
 		return {
 	        classes: 'disabledClass'
 	    };

@@ -60,7 +60,7 @@ $(function() {
                     visible: false
                 },{
                     field: 'clave',
-                    title: 'Identificaci&oacute;n',
+                    title: 'Evaluaci&oacute;n <BR> Pre-Evaluaci&oacute;n',
                     visible: true
                 }, {
                     field: 'dr',
@@ -76,37 +76,37 @@ $(function() {
                     valign: 'middle'
                 }, {
                     field: 'sp_code',
-                    title: 'Dealer Code',
+                    title: 'C&oacute;digo de Dealer',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
                 }, {
                     field: 'partes',
-                    title: '% Partes',
+                    title: '% <BR> Partes',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
                 }, {
                     field: 'herramientas',
-                    title: '% Herramientas',
+                    title: '% <BR> Herramientas',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
                 }, {
                     field: 'capacitacion',
-                    title: '% Capacitaci&oacute;n',
+                    title: '% <BR> Capacitaci&oacute;n',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
                 }, {
                     field: 'eficiencia',
-                    title: '% Eficiencia',
+                    title: '% <BR> Eficiencia',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
                 }, {
                     field: 'quejas',
-                    title: '% Quejas',
+                    title: '% <BR> Quejas',
                     type: 'text',
                     align: 'center',
                     valign: 'middle'
@@ -118,7 +118,7 @@ $(function() {
                     valign: 'middle'
                 }, {
                     field: 'editar',
-                    title: 'Editar/Consultar',
+                    title: 'Editar <BR>Consultar',
                     //formatter: 'linkFormatterEdit',
                     align: 'center',
                     valign: 'middle'

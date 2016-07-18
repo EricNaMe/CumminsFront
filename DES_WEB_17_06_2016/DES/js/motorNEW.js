@@ -6,7 +6,7 @@
 
 
 $(function() {
-
+	$('#motoresnew').addClass("active");
 	$.ajax({
          dataType: "text",
          url: "ObtenerRango",//?motor=" + this.value,

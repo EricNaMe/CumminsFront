@@ -32,7 +32,7 @@
     }
 </style>
 
-<div class="col-xs-3 tabs-left"> <!-- required for floating -->
+<div class="col-xs-2 menu-lateral tabs-left"> <!-- required for floating -->
     <!-- Nav tabs -->
     <ul class="nav nav-tabs tabs-left cumminsTabs" >
         <%
@@ -40,7 +40,7 @@
         %>
         <!-- <li class="active tabs-left" ><a data-toggle="tab" href="TEMPMotores.jsp">Motores</a></li> -->
         <li id="herraSoft"><a  href="TEMPHerramientasSoftware.jsp">Consulta Herramientas y Software</a></li>
-        <li id="herraElect"><a  href="TEMPHerramientasElectronica.jsp">Herramientas Electronicas</a></li>
+        <li id="herraElect"><a  href="TEMPHerramientasElectronica.jsp">Herramientas Electr&oacute;nicas</a></li>
 
         <!-- 
         <li ><a  href="">Herramientas Individual</a></li>
@@ -59,7 +59,7 @@
     </ul>
 </div>
 
-<div class="col-xs-9" >
+<div style="" class="col-xs-10 menu-central" >
     <div class="tab-content" style="background-color: #ffffff;">
 
 

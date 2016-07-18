@@ -78,6 +78,7 @@ function csvTojs2(csv) {
 
 var json;
 function PreviewText() {
+	$('#promotionH').addClass("active");
     var oFReader = new FileReader();
     oFReader.readAsText(document.getElementById("csvFile").files[0]);
     oFReader.onload = function(oFREvent) {
@@ -100,10 +101,11 @@ function PreviewText() {
         }
 
         if (processCsv === true) {
-        	
+        	/*
             for (var i = 0; i < json.length; i++) {
                 json[i].ponderacion = 100 / json.length ;
             }
+            */
             /*
             $('#matriz').val(json[0].matriz);
             $('#matrizLabel').html(json[0].matriz);
@@ -397,9 +399,9 @@ $(function() {
         	
            // jsonBody = JSON.stringify($('#tableBody').bootstrapTable('getData')).replace(/\\r/g, '');
             
-            
-            jsonBody = $('#tableBody').bootstrapTable('getData');
-            json = JSON.stringify(jsonBody);
+    	 	jsonBody = JSON.stringify($('#tableBody').bootstrapTable('getData')).replace(/\\r/g, '');
+            //jsonBody = $('#tableBody').bootstrapTable('getData');
+            //json = JSON.stringify(jsonBody);
             
 
             
@@ -417,8 +419,9 @@ $(function() {
                     $('#myModal').modal({keyboard: false, backdrop: 'static'}, 'show');
                 },
                 //data: {"data": data}
-                //data: {data: jsonBody},
-                data: {data: json}
+                //data: {data: },
+                data: {"data": jsonBody}
+                //data: {data: json}
                 //data: {"data": jsonBody}
             }).done(function(e) {
                 $('#headerModal').html(e);
@@ -428,9 +431,9 @@ $(function() {
                         $('#headerModal').html('Ocurrio un error al enviar la informacion');
                         $('#closeModal').css('display', '');
                     });
-            $('#formHeader')[0].reset();
+
             $('#tableBody').bootstrapTable('destroy');
-            window.location = "TEMPInfantCare.jsp";
+           // window.location = "TEMPInfantCare.jsp";
         /*
         } else {
             alert('Llene todos los campos');

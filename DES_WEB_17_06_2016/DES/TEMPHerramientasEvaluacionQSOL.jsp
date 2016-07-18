@@ -84,25 +84,25 @@
     </style>
 
 	<br>
-    <h1 style="font-family: arial; font-size: 18px; font-weight: bold; text-align: center;">Evaluaci&aacute;n de licencia de QSOL</h1>
+    <h1 class="titulo-plantilla" style="font-family: arial;  font-weight: bold; text-align: center;">Evaluaci&oacute;n de Licencia de QSOL</h1>
     <br><br>
     <form id="myform" name="myform">
         <%@include file="CTRL_FeDrDealer.jsp"%>  
         <br><br>
         <input type="hidden" id="Total" name="Total">
     </form>
-    <div class='col-sm-3'>
-        <div style='display:inline-block; ' class="col-md-4">
+ 
+ 
+    <div class="col-md-7 col-md-offset-2" style="margin-bottom:20px;margin-top:20px;">
+   	 	<table class="table table-striped" data-toggle="table" id="tableBody">                    
+    	</table>
+     </div>
+     
+     <div style="text-align:center;" class='col-sm-12' style="margin-bottom:20px;">        
             <button type="button" class="btn btn-default"  id="guardarBtn">Guardar</button>
-            <button type="button" class="btn btn-default"  id="guardarBtnS">Guardar y Salir</button>
-        </div>
+            <button type="button" class="btn btn-default"  id="guardarBtnS">Guardar y Salir</button>       
     </div>  
-    <br>
-    <br>
-    <br>
-    <br>
-    <table class="table table-striped" data-toggle="table" id="tableBody">                    
-    </table>
+   
 
 </body>
 </html>

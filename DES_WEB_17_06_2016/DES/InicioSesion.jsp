@@ -1,3 +1,14 @@
+
+<%
+/*	String IDUser = request.getHeader("UID");
+	session.setAttribute("WWID", IDUser.toUpperCase());
+  	String[][] alRol = com.cummins.servlets.RolUsuario.obtenerRol(IDUser);
+  	String strSpCode = alRol[0][0];
+  	String strRol = alRol[0][1].toUpperCase();
+  	String strTab = alRol[0][2];
+  	session.setAttribute("SPCODE", strSpCode); */
+%>		
+
 <link rel="stylesheet" href="cummins_styles/bootstrap.min.css">
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
@@ -40,6 +51,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/locales/bootstrap-datepicker.es.min.js"></script>
 
     <link rel="stylesheet" href="styles/bootstrapmodificado.min.css">
+    <link rel="stylesheet" href="styles/CMI-left-navigation-component.css">
+	<link rel="stylesheet" href="styles/CMI-header-component.css">
+	<link rel="stylesheet" href="styles/CMI-social-media-footer-component.css">
+	<link rel="stylesheet" href="styles/CMI-banner-navigation-component.css">
 
 <script>
 
@@ -54,6 +69,9 @@
             $("#codigoDeal").val("");
 
             cargarDealers($('#dr').val(), null);
+            
+            
+           
             //cargarDR(null);
         });
 
@@ -160,6 +178,7 @@
     	window.location = "header.jsp";
     }*/
     
+    
     function cargarDR(drCode) {
         $.ajax({
             dataType: "text",
@@ -232,16 +251,60 @@
                 background-color: #D3D3D3;
             }
         </style>
-        <div class="encabezado">
-                <img src="img/cummins.gif"  height="70px" alt="ABO IT" />     
-                <img src="img/global.bmp"  height="70px" alt="Global" align="right" /><BR>
-            	<a style="background-color: red; text-align: right;" href="https://access.cummins.com/RC_OnlineLogin/cola/logoutend.jsp">Cerrar Sesion</a>
-            </div><BR>
-<div style=" position:realtive; top:20px; height:140%; width:90%; text-align: center; border: 2px; ">
+        
+        <div style="position:fixed; width:100%; z-index:9; height:35px;" class="top">
+        <a class="" style="float:right;color:#ddd; margin-top:5px;   margin-right:20px; font-weight:bold;" href="https://access.cummins.com/RC_OnlineLogin/cola/logoutend.jsp" >Cerrar Sesión</a>
+        </div>	
+        
+         <div class="header" style="padding-bottom:10px;">
+ <div class="container-fluid"> 
+ 	<div class="navbar-header">
+ 		<div class="logo col-sm-5 col-md-4 col-lg-4">
+ 			<a href="http://localhost:8080/DES">
+                <div class="logo_img">
+                     <img src="img/cummins_logo.png" alt="logo"/>
+                </div>
+                <div class="sub-brand">
+                     <h2>Distribution</h2>
+                </div>
+            </a>
+ 		
+ 		</div>
+ 	</div>
+ 	<nav class="main_menu">
+ 		<ul id="nav" class="pull-right" style="padding-left:0px;">
+ 			
+         </ul>	
+ 	</nav>
+ 	  
+ </div>   		
+ </div>
+        
+        <style>
+.btn-default{
+	
+    background: #9C0404;
+    color:white;
+}
 
+.btn-default:hover {
+    color: #333;
+    background-color: white;
+    border-color: #adadad;
+}
+
+.divCentral div{
+text-align:left;
+}
+
+</style>
+        
+<div class="divCentral col-sm-4 col-sm-offset-4" style="text-align: center; border: 2px; 
+background-color:white; border-radius:10px; margin-top:130px;">
+<div style="margin-top:30px;">
 <form action="SetSession">
 
-<div class="col-sm-4">
+<div class="col-sm-12">
     <div class="col-xs-3">
         <label class="" for="dr">DR:</label>
     </div>
@@ -252,7 +315,7 @@
 
 <br><br><br>   
 
-<div class="col-sm-4">
+<div class="col-sm-12">
     <div class="col-xs-3" >
         <label class="" for="dealer">Dealer:</label>
     </div>
@@ -263,7 +326,7 @@
 
 <br><br><br>  
 
-<div class="col-sm-4">
+<div class="col-sm-12">
     <div class="col-sm-3">
         <label  for="tipo_eval">Tipo de Evaluación:</label>
     </div>
@@ -278,7 +341,7 @@
 
 <br><br><br>  
 
-<div class="col-sm-4">
+<div class="col-sm-12">
     <div class="col-sm-3">
         <label  for="revision">Revisión:</label>
     </div>
@@ -294,7 +357,7 @@
 
 <br><br><br>  
 
-<div class="col-xs-4">
+<div class="col-xs-12">
     <div class="col-sm-3">
         <label for="anio">Año:</label>
     </div>
@@ -315,8 +378,10 @@
 </div>
 
 <br><br><br>
-<input type="submit" value="OK" class="btn btn-default">
+
+<input style="margin-left:200px;" type="submit" value="OK" class="btn btn-default">
 </form>
+</div>
 <!-- 
 <div style="display:inline-block;">
     <button  type="button" class="btn btn-default" onClick="clicMenu()"  id="entrar">OK</button>

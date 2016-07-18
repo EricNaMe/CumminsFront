@@ -25,16 +25,25 @@
   		<script src="js/infantCareLista.js"></script>
         <script src="js/validaciones.js"></script>
 		      	
-            <div class="container" style="padding-top: 50px;">
+            
             	
+            	
+            	
+            	<div style="text-align:center; margin-top:30px; margin-bottom:30px;" class="col-sm-12">
+                <label class="titulo-plantilla" for="tableMatrizInfantCare">Matrices Infant Care</label>
+                </div>
+                
+                <div style="margin-bottom:20px;" class="col-sm-12">
+            	<div style="margin-left:-20px;" class="col-sm-4 col-sm-offset-5">
 				<a href="TEMPInfantCareImport.jsp"  class="buttonlnk">Generar Infant Care<img style="margin-left:10px" src="img/Upload.png" alt="Upload CSV" height="25" width="25"> </a>
-
-            	<br>
-                <label for="tableMatrizInfantCare">Matrices Infant Care</label>
+				</div>
+				</div>
+                <div class="col-sm-12">
                 <table id="tableMatrizInfantCare" >
 
                 </table>
-            </div>
+                </div>
+          
 
    
       <%@include file="footer.jsp"%>  

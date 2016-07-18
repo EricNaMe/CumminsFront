@@ -287,7 +287,7 @@ function cargarTablaJefeTaller(sp_code){
                     valign: 'middle'
                 }, {
                     field: 'nomJefeTaller',
-                    title: 'Nombre jefe de taller',
+                    title: 'Nombre Jefe de Taller',
                     visible: true,
                     align: 'center',
                     valign: 'middle'

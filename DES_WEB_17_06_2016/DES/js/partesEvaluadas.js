@@ -1,3 +1,4 @@
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -66,39 +67,46 @@ $(function() {
                 },{
                     field: 'clave',
                     title: 'Evaluaci&oacute;n<br>Pre-Evaluaci&oacute;n',
-                    visible: true
+                    visible: true,
+                    sortable: true
                 }, {
                     field: 'dealer',
                     title: 'Dealer',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'matrizProd',
-                    title: 'Motor/Producto',
+                    title: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Motor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'fechaEval',
-                    title: 'Fecha Evaluaci&oacute;n',
+                    title: 'Fecha <BR> Evaluaci&oacute;n',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'porcObtenido',
-                    title: '% Obtenido',
+                    title: '% <BR> Obtenido',
                     align: 'center',
-                    valign: 'middle'
+                    valign: 'middle',
+                    sortable: true
                 }, {
                     field: 'editar',
-                    title: 'Editar/Consultar',
+                    title: 'Editar <BR> Consultar',
                     formatter: 'linkFormatterEdit',
                     align: 'center',
                     valign: 'middle'
+                
                 }, {
                     field: 'eliminar',
                     title: 'Eliminar',
                     formatter: 'linkFormatterEliminar',
                     align: 'center',
                     valign: 'middle'
+                 
                 }]
         });
         $('#myModal').modal('hide');

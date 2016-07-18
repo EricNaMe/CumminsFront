@@ -1,7 +1,7 @@
 
 
 $(function() {
-
+	$('#cursoPromotionH').addClass("active");
 	$.ajax({
          dataType: "text",
          url: "ObtenerPuestos",//?motor=" + this.value,

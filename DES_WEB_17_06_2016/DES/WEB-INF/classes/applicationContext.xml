@@ -20,9 +20,8 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
         <jee:jndi-lookup id="dataSourceWwsps"
    jndi-name="jdbc/wwspsds"
    expected-type="javax.sql.DataSource" />  
+   
 
-
- 
  	 
  	<!-- Conexion DEV -->
  	<!--

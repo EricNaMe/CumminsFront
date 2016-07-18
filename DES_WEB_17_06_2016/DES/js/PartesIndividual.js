@@ -6,7 +6,7 @@
 var oem = [];
 
 $(document).ready(function() {
-	
+	$('#partesIndividualH').addClass("active");
 	
  /*  
 	var a = $.get("ID_MATRIZ");
@@ -234,7 +234,7 @@ function cargarTabla(sp_code, matriz,tipo_eval, revision, anio){
 	        }
 	    }).done(function(e) {
 	        json = $.parseJSON(e);
-      
+	        //alert( $('#matriz').find(":selected").text());
 	        $('#tableBody').bootstrapTable({
 	            dataType: 'json',
 	            emptytext: '-',
@@ -243,6 +243,12 @@ function cargarTabla(sp_code, matriz,tipo_eval, revision, anio){
 	            uniqueId: 'id_rel_matriz_dealer',
 	            search: true,
 	            pagination: true,
+	            showExport: true,
+	            exportTypes:['excel', 'pdf'],
+	            exportDataType:'all',
+	            exportOptions: {
+	                fileName: 'Partes_Individual'
+	            },
 	            formatLoadingMessage: function() {
 	                return 'Cargando...';
 	            },
@@ -277,11 +283,7 @@ function cargarTabla(sp_code, matriz,tipo_eval, revision, anio){
 	                field: 'id_rel_matriz_dealer',
 	                title: 'id_rel_matriz_dealer',
 	                visible: false
-	            }, {
-	                field: 'id_matriz',
-	                title: 'id_matriz',
-	                visible: false
-	            }, {
+	            },{
 	                field: 'no_parte',
 	                title: 'N/P',
                     align: 'center',

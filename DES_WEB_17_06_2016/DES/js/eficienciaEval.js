@@ -18,6 +18,7 @@ $(function() {
         }
     }).done(function(e) {
         json = $.parseJSON(e);
+        
         $('#tableBody').bootstrapTable({
             dataType: 'json',
             emptytext: '-',
@@ -61,7 +62,7 @@ $(function() {
                     visible: false
                 },{
                     field: 'clave',
-                    title: 'Identificaci&oacute;n',
+                    title: 'Evaluaci&oacute;n <BR> Pre-Evaluaci&oacute;n',
                     visible: true
                 }, {
                     field: 'dealer',
@@ -77,7 +78,7 @@ $(function() {
                     type: 'text'
                 }, {
                     field: 'tipo',
-                    title: 'Seccion',
+                    title: 'Secci&oacute;n',
                     align: 'center',
                     valign: 'middle',
                     type: 'text'
@@ -95,7 +96,7 @@ $(function() {
                     type: 'text'
                 }, {
                     field: 'editar',
-                    title: 'Editar/Consultar',
+                    title: 'Editar<BR>Consultar',
                     align: 'center',
                     valign: 'middle',
                     type: 'text'

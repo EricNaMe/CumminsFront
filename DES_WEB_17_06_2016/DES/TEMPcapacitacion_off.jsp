@@ -33,7 +33,7 @@
         <li id="capaEvaluar"><a  href="TEMPCapacitacionEvaluar.jsp">Evaluar</a></li>
         <li id="capaMecanico"><a  href="TEMPCapacitacionMecanico.jsp">Mec&aacute;nicos</a></li>
         <li id="capaAdminG"><a  href="TEMPCapacitacionAdminGarantias.jsp">Administrador de Garant&iacute;as</a></li>
-        <li id="capaJefeGere"><a  href="TEMPCapacitacionJefeTaller.jsp">Jefe Taller / Gerente Servicio</a></li>
+        <li id="capaJefeGere"><a  href="TEMPCapacitacionJefeTaller.jsp">Jefe Taller / Gerente Servicio22</a></li>
         <li id="capaVerificacion"><a  href="TEMPCapacitacionPreEvaluacion.jsp">Verificaci&oacute;n de datos</a></li>
           
     </ul>

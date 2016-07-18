@@ -167,7 +167,7 @@ function cargarTabla(sp_code){
                 },
                 {
                     field: 'fechaExp',
-                    title: 'Fecha de expiracio&oacute;n',
+                    title: 'Fecha de Expiraci&oacute;n',
                     visible: true
                 },
                 {

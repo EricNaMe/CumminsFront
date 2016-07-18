@@ -28,18 +28,20 @@
 
         <br></br></br>
 
-        <div class="table-responsive">
-            <div class="container-body" style="margin: 20px">
-                <div class="container-body col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
+		<div style="text-align:center;" class="col-md-12">
+		<label class="titulo-plantilla"  style="font-family: arial; text-align:center; font-weight: bold;">Eficiencia Garant&iacute;as y Rescates</label>
+		</div>
+		
+
+        <div style="text-align:center;" class="col-md-12">            
                     <form class="form-horizontal" role="form">
-                        <div class="table-responsive" >
-                         	<label for="tableBody" style="font-family: arial; font-size: 18px; font-weight: bold;">Eficiencia Garat&iacute;as y Rescates</label>
+                        <div class="table-responsive" >                         	
                             <table id="tableBody" data-toggle="table">
                             </table>
                         </div> 
-                    </form>
-                </div>
-            </div>
+                    </form>           
         </div>
  
  

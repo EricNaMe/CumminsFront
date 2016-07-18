@@ -14,6 +14,9 @@ var done1=false;
 var done2=false;
 var done3=false;
 
+var modulo;
+var submodulo;
+
 var oem = [];
 
 $(function() {
@@ -85,10 +88,12 @@ $(function() {
     });
 
     $('#guardarPerfil').click(function() {
+    	alert('obtiene codigo del dealer');
         idDealerLoc = $('#codigoDeal').val();
         //alert(idDealer);
         if (idDealerLoc != '') {
             jsonPerfil = JSON.stringify($('#myform').serializeArray());
+            alert('manda llamar el servlet guardaperfil');
             $.ajax({
                 data: {data: jsonPerfil},
                 dataType: "text",
@@ -100,14 +105,17 @@ $(function() {
                     $('#myModal').modal({keyboard: false, backdrop: 'static'}, 'show');
                 }
             }).done(function(e) {
+            	alert('confirmacion de guardado en perfil');
                 $('#headerModal').html(e);
                 $('#closeModalEliminar').css('display', '');
             }).fail(function(e) {
+            	alert('error de guardado en perfil');
                 $('#closeModal').css('display', '');
                 $('#headerModal').html('Ocurrio un error al guardar los datos');
             });
 
             jsonPerfil = JSON.stringify($('#tableCheckBoxObl').bootstrapTable('getAllSelections'));
+            alert("llamado GUARDAMOTORESPERFIL");
             $.ajax({
                 data: {data: jsonPerfil},
                 dataType: "text",
@@ -119,9 +127,11 @@ $(function() {
                     $('#myModal').modal({keyboard: false, backdrop: 'static'}, 'show');
                 }
             }).done(function(e) {
+            	alert('confirmacion de guardado de motores');
                 $('#headerModal').html(e);
                 $('#closeModalEliminar').css('display', '');
             }).fail(function(e) {
+            	alert('error de guardado de motores');
                 $('#closeModal').css('display', '');
                 $('#headerModal').html('Ocurrio un error al guardar los datos');
             });
@@ -157,6 +167,7 @@ $(function() {
         //alert(idDealer);
         if (idDealerLoc != '') {
             jsonPerfil = JSON.stringify($('#myform').serializeArray());
+            alert('manda llamar al servlet guarda perfil boton guardar y salir');
             $.ajax({
                 data: {data: jsonPerfil},
                 dataType: "text",
@@ -168,6 +179,7 @@ $(function() {
                     $('#myModal').modal({keyboard: false, backdrop: 'static'}, 'show');
                 }
             }).done(function(e) {
+            	 alert('guardado de perfil exitoso en boton guardar y salir');
                 $('#headerModal').html(e);
                 $('#closeModalEliminar').css('display', '');
                 
@@ -178,11 +190,13 @@ $(function() {
              
                 //window.location = "TEMPPerfilDealerT.jsp";
             }).fail(function(e) {
+            	 alert('error de guardado en boton guardar y salir');
                 $('#closeModal').css('display', '');
                 $('#headerModal').html('Ocurrio un error al guardar los datos');
             });
 
             jsonPerfil = JSON.stringify($('#tableCheckBoxObl').bootstrapTable('getAllSelections'));
+            alert('manda llamar al servlet guardaMotoresPerfil en boton guardar y salir');
             $.ajax({
                 data: {data: jsonPerfil},
                 dataType: "text",
@@ -194,6 +208,7 @@ $(function() {
                     $('#myModal').modal({keyboard: false, backdrop: 'static'}, 'show');
                 }
             }).done(function(e) {
+            	 alert('guardado exitoso en motores en boton guardar y salir');
                 $('#headerModal').html(e);
                 $('#closeModalEliminar').css('display', '');
                 
@@ -204,6 +219,7 @@ $(function() {
                 }
                 
             }).fail(function(e) {
+            	 alert('error en guardar motorees en boton guardar y salir');
                 $('#closeModal').css('display', '');
                 $('#headerModal').html('Ocurrio un error al guardar los datos');
             });
@@ -303,6 +319,69 @@ function obtenerPerfil(idDealer) {
                 $('#dr').val(DrObt);
                 $('#dr').val(DrObt);
                 //$('#oem').val(oem[$("#dealer").prop('selectedIndex')-1]);
+                
+                
+                obtenerModulos2('1', json[0].modulo1);
+                obtenerModulos2('2', json[0].modulo2);
+                obtenerModulos2('3', json[0].modulo3);
+                obtenerModulos2('4', json[0].modulo4);
+                
+                
+               modulo1=json[0].modulo1;
+               submodulo1=json[0].submodulo1;
+               
+               modulo2=json[0].modulo2;
+               submodulo2=json[0].submodulo2;
+               
+               modulo3=json[0].modulo3;
+               submodulo3=json[0].submodulo3;
+               
+               modulo4=json[0].modulo4;
+               submodulo4=json[0].submodulo4;
+                
+
+                obtenerSubodulos2('1',modulo1,submodulo1);
+                obtenerSubodulos2('2',modulo2,submodulo2);
+                //obtenerSubodulos2('3',modulo3,submodulo3);
+                //obtenerSubodulos2('4',modulo4,submodulo4);
+                
+                rq1=json[0].requerido1;
+                rq2=json[0].requerido2;
+                rq3=json[0].requerido3;
+                rq4=json[0].requerido4;
+                
+                
+                alert(rq1+'--'+rq2+'--'+rq3+'--'+rq4);
+                
+                if (rq1==="on"){
+                  $( "#requerido1" ).prop( "checked", true );
+                }
+                
+                if (rq2==="on"){
+                  $( "#requerido2" ).prop( "checked", true );
+                }
+
+                if (rq3==="on"){
+                  $( "#requerido3" ).prop( "checked", true );
+                }
+
+                if (rq4==="on"){
+                  $( "#requerido4" ).prop( "checked", true );
+                }
+              
+                
+               
+               
+                
+                
+                
+                //obtenerSubodulos2('2', json[0].modulo2, json[0].submodulo2);
+                //obtenerSubodulos2('3', json[0].modulo3, json[0].submodulo3);
+                //obtenerSubodulos2('4', json[0].modulo4, json[0].submodulo4);
+                
+                
+                
+                
         }
     }).fail(function(e) {
         $('#headerModal').html('Ocurrio un error al enviar la informacion');
@@ -750,14 +829,17 @@ function obtenerModulos(){
                 $('#modulo4').append($("<option></option>")
                 		.attr("value", json[i].value)
                         .text(json[i].text));
+                //console.log(json.length);
+                //console.log(json[i].text);
             }
         }
     }).fail(function(e) {
         $('#headerModal').html('Ocurrio un error al cargar catalogo de rangos');
         $('#closeModal').css('display', '');
     });  
-	
+
 }
+
 
 function obtenerSubModulo(obj){
 	
@@ -775,11 +857,17 @@ function obtenerSubModulo(obj){
             alert('Ocurrio un error al cargar catalogo de rangos');
         } else {
             json = $.parseJSON(e);
-            $('#dealer').html($("<option></option>"));
+           
+           //$('#submodulo1').empty();
             for (var i = 0; i < json.length; i++) {
-                $('#submodulo' + strObj).append($("<option></option>")
+                if (i==0){
+                 $('#submodulo'+ strObj).empty();
+                }
+            	$('#submodulo' + strObj).append($("<option></option>")
                 		.attr("value", json[i].value)
                         .text(json[i].text));
+                console.log(json[i].text);
+                //alert(i+'---'+json[i].value+'---'+json[i].text+'---submodulo' + strObj);
             }
         }
     }).fail(function(e) {
@@ -787,6 +875,84 @@ function obtenerSubModulo(obj){
         $('#closeModal').css('display', '');
     }); 
 	
-	
+}
+
+
+
+/////////////
+
+
+
+function obtenerModulos2(index, modval){
+	$.ajax({
+        dataType: "text",
+        url: "ObtenermModuloPerfil",
+        method: "GET",
+        beforeSend: function() {
+
+        }
+    }).done(function(e) {
+        if (e === 'error') {
+            alert('Ocurrio un error al cargar catalogo de rangos');
+        } else {
+            json = $.parseJSON(e);
+            $('#modulo' + index).html($("<option></option>"));
+            for (var i = 0; i < json.length; i++) {
+                $('#modulo' + index).append($("<option></option>")
+                		.attr("value", json[i].value)
+                        .text(json[i].text));
+              
+                
+            }
+            $('#modulo' + index).val(modval);
+          //alert(i+'---'+json[i].value+'---'+json[i].text+'---submodulo' + strObj);
+           // alert ('modulo'+index+'--'+modval);
+            
+            
+        }
+    }).fail(function(e) {
+        $('#headerModal').html('Ocurrio un error al cargar catalogo de rangos');
+        $('#closeModal').css('display', '');
+    });  
 	
 }
+
+////////////////
+function obtenerSubodulos2(index,modval,subval){
+	$.ajax({
+        dataType: "text",
+        url: "ObtenerSubmoduloPerfil?id=" + Number(modval),
+        method: "GET",
+        beforeSend: function() {
+
+        }
+    }).done(function(e) {
+        if (e === 'error') {
+            alert('Ocurrio un error al cargar catalogo de rangos');
+        } else {
+            json = $.parseJSON(e);
+            $('#submodulo' + index).html($("<option></option>"));
+            for (var i = 0; i < json.length; i++) {
+                //alert('dentro del submenu load---submodulo'+index+'--Value--'+json[i].value+'--texto--'+json[i].text+'longitud-'+json.length);
+            	if (i==0){
+                    $('#submodulo'+ index).empty();
+                  }
+            	 $('#submodulo' + index).html($("<option></option>"));
+                $('#submodulo' + index).append($("<option></option>")
+                		.attr("value", json[i].value)
+                        .text(json[i].text));
+           
+            }
+            //alert(index+'---'+subval);
+            $('#submodulo' + index).val(subval);
+            alert ('combbo ' + index+' valor '+subval);
+            
+            
+        }
+    }).fail(function(e) {
+        $('#headerModal').html('Ocurrio un error al cargar catalogo de rangos');
+        $('#closeModal').css('display', '');
+    });  
+	
+}
+

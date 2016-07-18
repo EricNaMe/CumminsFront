@@ -80,6 +80,13 @@ $(function() {
                     rowStyle: 'rowStyle',
                     maintainSelected: true,
                     search: true,
+                    showExport: true,
+    	            exportTypes:['excel', 'pdf'],
+    	            exportDataType:'all',
+    	            exportOptions: {
+    	                fileName: 'Partes_Agrupadas'
+    	            },
+                    
                     formatLoadingMessage: function() {
                         return 'Cargando...';
                     },

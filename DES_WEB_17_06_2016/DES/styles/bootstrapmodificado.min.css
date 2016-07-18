@@ -14,6 +14,12 @@ body {
 	margin: 0
 }
 
+@media print{
+	#exp{
+	display:none;
+	}
+}
+
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary
 	{
 	display: block
@@ -34,7 +40,7 @@ audio:not ([controls] ){
 }
 
 a {
-	background-color: #D02323
+	background-color: transparent
 }
 
 a:active,a:hover {
@@ -1848,8 +1854,8 @@ pre code {
 }
 
 .container-fluid {
-	padding-right: 15px;
-	padding-left: 15px;
+	padding-right: 0px;
+	padding-left: 0px;
 	margin-right: auto;
 	margin-left: auto
 }

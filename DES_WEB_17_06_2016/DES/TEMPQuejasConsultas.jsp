@@ -2,10 +2,14 @@
 	
 		<script src="js/quejasConsultas.js"></script>
 		
-        	<div class="table-responsive" style="margin: 20px">
+		
+			<div style="margin-top:3%;" class="col-md-12">
+				 <label class="titulo-plantilla" style="font-family: arial; text-align:center;  font-weight: bold;">Consulta de Quejas</label>
+			</div>
+		
+        	<div class="col-md-12" style="">
            
-                <div class="table-responsive">
-                    <label for="tableBody" style="font-family: arial; font-size: 18px; font-weight: bold;">Consulta de quejas</label>
+                <div class="table-responsive">                   
                     <table id="tableBody">
                     </table>
                 </div>

@@ -19,20 +19,24 @@
     }
 
     .cumminsTabs{
-        color:#000000;
+     
+        color:black;
     }
     .cumminsTabs li{
-        color:#000000;
-        background-color:#FFFFFF;
+        color:black;
+        background-color: white;
 
     }
     .cumminsTabs a{
-        color:#000000;
-        background-color:#FFFFFF;
+        color:black;
+        background-color: white;
     }
+    
+    
 </style>
 
-<div class="col-xs-3 tabs-left"> <!-- required for floating -->
+
+<div style=" " class="menu-lateral col-xs-2 tabs-left"> <!-- required for floating -->
     <!-- Nav tabs -->
     <ul class="nav nav-tabs tabs-left cumminsTabs" >
         <!-- <li class="active tabs-left" ><a data-toggle="tab" href="TEMPMotores.jsp">Motores</a></li> -->
@@ -45,7 +49,8 @@
     </ul>
 </div>
 
-<div class="col-xs-9" >
+<div class="col-xs-10 menu-central" style="
+    margin-top: 2%;">
     <div class="tab-content" style="background-color: #ffffff;">
 
 

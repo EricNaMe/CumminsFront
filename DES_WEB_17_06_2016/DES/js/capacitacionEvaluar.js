@@ -104,7 +104,7 @@ $(function() {
                     type: 'text'
                 }, {
                     field: 'editar',
-                    title: 'Editar/Consultar',
+                    title: 'Editar <BR> Consultar',
                     align: 'center',
                     valign: 'middle',
                     type: 'text'

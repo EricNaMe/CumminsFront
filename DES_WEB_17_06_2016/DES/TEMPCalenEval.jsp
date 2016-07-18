@@ -26,7 +26,7 @@ $(function() {
 
     <br>
 
-    <div class="row">
+    <div style="margin-bottom:30px; margin-top:20px;" class="col-sm-12">
         <div class="col-sm-4">
             <div class="col-sm-4">
                 <label  for="tipo_eval">Tipo de evaluaci&oacute;n:</label>
@@ -77,24 +77,29 @@ $(function() {
 		
 
     <br></br>
- 	<div class="col-sm-4">
-	    <div class="col-xs-6" style="width:47%;">
+<div style="margin-bottom:30px;" class="col-sm-12">
+ 	<div class="col-sm-6">
+	    <div class="col-xs-5" style="">
 	        <label for="datepicker">Fecha inicio evaluación:</label>
 	    </div>
-	    <div class="col-xs-6" style="width:53%;">
+	    <div class="col-xs-4" style=";">
 	        <input id="datepicker" name="fecIniEval" class="form-control" type="text" value=""/>
 	    </div>
 	</div>    
 
-<div class="col-sm-4">
-    <div class="col-xs-6" style="width:47%;">
+<div class="col-sm-6">
+    <div class="col-xs-5" style="">
         <label for="datepicker2">Fecha fin evaluación:</label>
     </div>
-    <div class="col-xs-6" style="width:53%;">
+    <div class="col-xs-4" style="">
         <input id="datepicker2" name="fecFinEval" class="form-control" type="text" value=""/>
     </div>
 </div> 
-<div  class="col-sm-4">
+
+</div>
+
+<div style="margin-bottom:30px;" class="col-sm-12">
+	<div  class="col-sm-4 col-sm-offset-4">
         <label class="col-sm-3" >Status:</label>
 
         <div class="col-sm-8"> 
@@ -110,13 +115,13 @@ $(function() {
 
     </div> 
 
+</div>
+
 
     <br></br>
 
 
-    <div class="col-sm-3 col-sm-offset-5" >
-        <input type="button" value="Guardar" id = "Guardar" class ="btn btn-default" >
-    </div>
+   
 
 
 </form>
@@ -126,5 +131,9 @@ $(function() {
         <table class="table table-striped" id="TableCalenEval"></table>
     </div>
 </div>
+
+ <div style="text-align:center; margin-top:20px; margin-bottom:20px;" class="col-md-12" >
+        <input type="button" value="Guardar" id = "Guardar" class ="btn btn-default" >
+    </div>
 
 <%@include file="footer.jsp"%>

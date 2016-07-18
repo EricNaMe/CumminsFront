@@ -66,8 +66,8 @@
         </div>
     </div>
 </div>
-<div style=" position:absolute; top:20px; left:80px; height:100%; width:90%;">
-    <h1 style="font-family: arial; font-size: 18px; font-weight: bold; text-align: center;">Evaluaci&oacute;n administrador de garant&iacute;as</h1>
+<div style="">
+    <h1 class="titulo-plantilla"style="font-family: arial;  font-weight: bold; text-align: center;">Evaluaci&oacute;n Administrador de Garant&iacute;as</h1>
 <br><br>
     <form name="myform" id="myform">                
         
@@ -77,15 +77,16 @@
 
     <div style="display:inline-block;">
 
-        <div style="position:relative; ">
-            <div class="table-responsive" style='position:relative;  height: 190px; top:30px; width:800px;' class="container" >
+        <div class="col-md-offset-2" style=" ">
+            <div class="table-responsive" style='  max-height: 190px;  width:800px;' class="container" >
 
                 <table class="table table-striped" id="tableBody" data-toggle="table">
                 </table>
             </div>
         </div>
-    </div><br><br><br><br><br>
-    <div style="display:inline-block;">
+    </div><br><br>
+    
+    <div class="col-md-12" style="display:inline-block; text-align:center;">
         <button  type="button" class="btn btn-default"  id="bGuardar">Guardar</button>
         <button  type="button" class="btn btn-default"  id="bGuardarS">Guardar y Salir</button>
     </div> 

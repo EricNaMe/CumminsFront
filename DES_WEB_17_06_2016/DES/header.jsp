@@ -3,7 +3,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	
+
     String IDUser = request.getHeader("UID");
 	session.setAttribute("WWID", IDUser.toUpperCase());
     String[][] alRol = com.cummins.servlets.RolUsuario.obtenerRol(IDUser);
@@ -18,7 +18,7 @@
     //String strAnio= (String)session.getAttribute("strAnio");
     //String strIdDr= (String)session.getAttribute("strIdDr");
     //String bandLog= (String)session.getAttribute("bandLog");
-    
+   
 %>
 <html>
     <head>
@@ -63,7 +63,7 @@
         <!-- excel export --> 
         <script type="text/javascript" src="scripts/bootstrap-table-export.js"></script>
         <script type="text/javascript" src="scripts/FileSaver.min.js"></script>
-        <script type="text/javascript" src="scripts/jspdf.js"></script>
+        <script type="text/javascript" src="scripts/jspdf.min.js"></script>
         <script type="text/javascript" src="scripts/jspdf.plugin.autotable.js"></script>
         <script type="text/javascript" src="scripts/tableExport.js"></script>
 
@@ -73,11 +73,22 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/locales/bootstrap-datepicker.es.min.js"></script>
 
         <link rel="stylesheet" href="styles/bootstrapmodificado.min.css">
-
+        <!-- NS813 -->
+		<link rel="stylesheet" href="styles/CMI-left-navigation-component.css">
+		<link rel="stylesheet" href="styles/CMI-header-component.css">
+		<link rel="stylesheet" href="styles/CMI-social-media-footer-component.css">
+		<link rel="stylesheet" href="styles/CMI-banner-navigation-component.css">
+		
+		
+		
         <style type="text/css">
 
+            .minimal {
+            top: 35px;
+        	}
+        	
             body {   
-                background-image: url('img/bg01.bmp');
+                background-image: #fff;
                 margin:0px;
             }
 
@@ -127,11 +138,76 @@
     </head>
 
     <body>
+<div style="position:fixed; width:100%; z-index:9; height:35px;" class="top">
+ <a class="" style="float:right;color:#ddd; margin-top:5px;   margin-right:20px; font-weight:bold;" href="https://access.cummins.com/RC_OnlineLogin/cola/logoutend.jsp" >Cerrar Sesión</a>   		
+</div>	
 
-        <div class="container-fluid"> 
+ <div class="header no-print col-md-12" style="">
+ <div class="container-fluid"> 
+ 	<div class="navbar-header">
+ 		<div class="logo col-sm-5 col-md-4 col-lg-4">
+ 			<a href="http://localhost:8080/DES">
+                <div class="logo_img">
+                     <img src="img/cummins_logo.png" alt="logo"/>
+                </div>
+                <div class="sub-brand">
+                     <h2>Distribution</h2>
+                </div>
+              
+            </a>
+ 		
+ 		</div>
+ 		  <div style="float:right;">
+                <h2 style="font-size:22px; font-size: 20px;
+    			margin-top: 5px; color:white;">Sistema de Certificación de Dealers</h2>
+          </div>
+ 	</div>
+ 	<nav class="main_menu col-md-10">
+ 		<ul id="nav" class="pull-right" style="padding-left:0px;">
+ 		<%
+                    if (strRol.compareTo("ADMINISTRADOR") == 0 || strRol.compareTo("DR") == 0 || strRol.compareTo("EV_SIN") == 0) {
+                %>
+                
+ 		 	<li><a href="TEMPPerfilDealerT.jsp">Perfil</a></li>
+         	<li class="divider"></li>
+		 	<li><a href="TEMPPartesEvaluadas.jsp">Partes</a></li>
+         	<li class="divider"></li>
+         	<li><a href="TEMPCapacitacionEvaluar.jsp">Capacitación</a></li>
+         	<li class="divider"></li>
+         	<li><a href="TEMPHerramientasSoftware.jsp">Herramientas y Software</a></li>
+         	<li class="divider"></li>
+         	 <%
+                        if (strRol.compareTo("ADMINISTRADOR") == 0 || strRol.compareTo("DR") == 0) {
+                    %>
+         	<li><a href="TEMPEficienciaEva.jsp">Eficiencia</a></li>
+         	<li class="divider"></li>
+         	<% } %>
+         	<li><a href="TEMPQuejasConsultas.jsp">Quejas</a></li>
+         	<li class="divider"></li>
+         	<%
+                   if (strRol.compareTo("ADMINISTRADOR") == 0 || strRol.compareTo("DR") == 0) {
+                %>
+         	<li><a href="TEMPResumenEval.jsp">Resultado Evaluación</a></li>
+         	<li class="divider"></li>
+         	<% }
+                        if (strRol.compareTo("ADMINISTRADOR") == 0) {%>
+         	<li><a href="TEMPcatalogos.jsp">Catálogos</a></li>
+         	<li class="divider"></li>
+         	<% }%>
+                    <% } else {
+                            response.sendRedirect("no_autorizado.jsp");
+                        }%>
+         	<li><a href="InicioSesion.jsp">Cambiar Dealer</a></li>
+         	<li class="divider"></li>
+         </ul>	
+ 	</nav>
+ 	  
+ </div>   		
+ </div>
+ 		
         <!--  <div class="">  -->
 
-            <div class="encabezado">
+            <!--  <div class="encabezado">
             <a style="background-color: #F21E1E; text-align: right;" href="https://access.cummins.com/RC_OnlineLogin/cola/logoutend.jsp">Cerrar sesi&oacute;n</a>
             <br>
                 <!--  
@@ -140,9 +216,11 @@
                  -->
                  <img src="img/izq.png"  height="70px" alt="ABO IT" />     
                 <img src="img/der.png"  height="70px" alt="Global" align="right" />
-            </div>
+            </div>-->
 
-            <br>
+           
+            
+            
             <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -163,42 +241,9 @@
                     </div>
                 </div>
             </div>
-            <div class="container-body" style="margin: 10px">
-            <ul class="cummins_navi cummins_navi-tabs active" id="TABS">
-                <!-- <li  class="active " ><a data-toggle="tab" href="TEMPPerfilDealer.jsp">Perfil</a></li>-->
-                <%
-                    if (strRol.compareTo("ADMINISTRADOR") == 0 || strRol.compareTo("DR") == 0 || strRol.compareTo("EV_SIN") == 0) {
-                %>
-                <li ><a href="TEMPPerfilDealerT.jsp"  >Perfil</a></li>
-                <li><a href="TEMPPartesEvaluadas.jsp" >Partes</a></li>
-                <li><a href="TEMPCapacitacionEvaluar.jsp">Capacitación</a></li>
-
-                <li><a href="TEMPHerramientasSoftware.jsp">Herramientas Y Software</a></li>
-                    <%
-                        if (strRol.compareTo("ADMINISTRADOR") == 0 || strRol.compareTo("DR") == 0) {
-                    %>
-                <li><a href="TEMPEficienciaEva.jsp">Eficiencia</a></li>
-                    <% } %>
-                <!-- 
-                <li><a data-toggle="tab" href="#menu6">Branding</a></li>
-                -->
-                <li><a href="TEMPQuejasConsultas.jsp">Quejas</a></li>
-                <!-- 
-                <li><a  data-toggle="tab" href="#menu8">Desarrollo Dealer</a></li>
-                -->
-                <%
-                   if (strRol.compareTo("ADMINISTRADOR") == 0 || strRol.compareTo("DR") == 0) {
-                %>
-                <li><a  href="TEMPResumenEval.jsp">Resumen Ejecutivo</a></li>
-                    <% }
-                        if (strRol.compareTo("ADMINISTRADOR") == 0) {%>
-                <li><a  href="TEMPcatalogos.jsp">Catálogos</a></li>
-                    <% }%>
-                    <% } else {
-                            response.sendRedirect("no_autorizado.jsp");
-                        }%>
-                <li><a  href="InicioSesion.jsp">Cambiar Dealer</a></li>
-            </ul>
-			</div>
-            <div class="tab-content" style ="background-color: #FFFFFF; ">
+            <div class="tab-content" style ="background-color: #FFFFFF; ">   
+          
+            
+            
+            
 

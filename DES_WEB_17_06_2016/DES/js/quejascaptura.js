@@ -1,6 +1,6 @@
 
 $(function() {
-	
+	$('#quejasCapt').addClass("active");
 	cargarComboQuejas();
 	
 	$('#saveFile').click(function(){
@@ -32,7 +32,7 @@ $(function() {
 		    var formData = new FormData(form);
 
 		    $.ajax({
-		        url: 'AttachFile?id_queja='+$('#id_queja').val(),
+		        url: 'AttachFile',
 		        data: formData,
 		        contentType: false,
 		        processData: false,
@@ -73,11 +73,27 @@ $(function() {
     	
     	$('#modalAddQueja').modal({keyboard: false, backdrop: 'static'}, 'show');
     	
+    	$('#fecha_crea').val('');
+    	$('#fecha_queja').val('');
+    	$('#nombre_cliente').val('');
+    	$('#contact_cliente').val('');
+    	$('#queja').val('');
+    	$('#descrip_queja').val('');
+    	$('#seg_queja').val('');
+    	$('#resp_seg').val('');
+    	$('#fecha_cierre').val('');
+    	$('#compromiso').val('');
+    	$('#reporta').val('');
+    	$('#status').val('');
+    	$('#valido_eval').val('');
+    	
+    	/*
         $.ajax({
             dataType: "text",
             url: "GuardarQuejaCaptura?id_dealer=" + $('#codigoDeal').val(),
             method: "GET",
             beforeSend: function() {
+            	//alert('llama modal');
                 $('#headerModal').html('Agregando registro...');
                 $('#closeModal').css('display', 'none');
                 $('#myModal').modal({keyboard: false, backdrop: 'static'}, 'show');
@@ -96,7 +112,7 @@ $(function() {
             $('#closeModal').css('display', '');
             $('#headerModal').html('Ocurrio un error al guardar los datos');
         }); 
-        
+        */
     }); 
 
     
@@ -108,7 +124,7 @@ $(function() {
     	
     	$.ajax({
             dataType: "text",
-            url: "GuardarNuevaQueja",
+            url: "GuardarNuevaQueja?id_dealer=" + $('#codigoDeal').val(),
             method: "GET",
             data: json,
             beforeSend: function() {
@@ -156,6 +172,12 @@ $(function() {
     });
 
 
+    /////////////////////
+    
+   
+    ////////////////////////
+    
+    
     if (idDealer != "" & idDealer != null) {
         obtenerInfo(idDealer);
     }
@@ -220,17 +242,18 @@ function linkFormatterEliminar(value, row) {
             + '<img src="img/file_delete.png" alt="Eliminar" style="width:22px; height:22px;"> </a>';
 }
 
-function UpdateFileQuejas(id){
+function UpdateFileQuejas(id,index){
 	$("#modalUploadFile").modal();
 	$('#id_queja').val(id);
 	$('#lnkDownFile').html('');
+	$('#index').val(index)
 	//window.open("UploadFileQuejas.jsp?id_quejas="+id, "", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, height=200, width=300");
 }
 
-function UpdateDownFileQuejas(id,name){
+function UpdateDownFileQuejas(id,name,index){
 	$("#modalUploadFile").modal();
 	$('#id_queja').val(id);
-	$('#lnkDownFile').html('<a href="AttachObtenerQuejas?id_queja=' + id +'" target="_blank">'+name+'</a>');
+	$('#lnkDownFile').html('<a href="AttachObtenerQuejas?id_queja=' + id +'&index='+index+'" target="_blank">'+name+'</a>');
 	//window.open("UploadFileQuejas.jsp?id_quejas="+id, "", "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, height=200, width=300");
 }
 
@@ -336,7 +359,7 @@ function cargarTabla(idDealer) {
             return 'No se encontraron registros';
         },
         formatPaginationSwitch: function() {
-            return 'Ocultar/Mostrar paginacioon';
+            return 'Ocultar/Mostrar paginacion';
         },
         formatRefresh: function() {
             return 'Actualizar';
@@ -358,7 +381,7 @@ function cargarTabla(idDealer) {
                 type: 'text'
             }, {
                 field: 'fecha_crea',
-                title: 'Fecha de Creaci&oacute;n',
+                title: 'Fecha de <BR>Creaci&oacute;n',
                 align: 'center',
                 valign: 'middle',
                 class: 'TextFormat',
@@ -372,7 +395,7 @@ function cargarTabla(idDealer) {
                 }
             }, {
                 field: 'fecha_queja',
-                title: 'Fecha de Queja',
+                title: 'Fecha de <BR>Queja',
                 align: 'center',
                 valign: 'middle',
                 class: 'TextFormat',
@@ -410,7 +433,7 @@ function cargarTabla(idDealer) {
                 }
             }, {
                 field: 'queja',
-                title: 'Queja',
+                title: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Queja &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;',
                 align: 'center',
                 valign: 'middle',
                 class: 'TextFormat',
@@ -447,7 +470,7 @@ function cargarTabla(idDealer) {
                 }
             }, {
                 field: 'reporta',
-                title: 'Reporta',
+                title: '&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Reporta &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;',
                 align: 'center',
                 valign: 'middle',
                 class: 'TextFormat',
@@ -463,7 +486,47 @@ function cargarTabla(idDealer) {
                 align: 'center',
                 valign: 'middle',
                 class: 'TextFormat'
-            }, {
+            }
+            ////
+            
+            , {
+                field: 'soporte1',
+                title: 'Soporte1',
+                align: 'center',
+                valign: 'middle',
+                class: 'TextFormat'
+            }
+            , {
+                field: 'soporte2',
+                title: 'Soporte2',
+                align: 'center',
+                valign: 'middle',
+                class: 'TextFormat'
+            }
+            , {
+                field: 'soporte3',
+                title: 'Soporte3',
+                align: 'center',
+                valign: 'middle',
+                class: 'TextFormat'
+            }
+            , {
+                field: 'soporte4',
+                title: 'Soporte4',
+                align: 'center',
+                valign: 'middle',
+                class: 'TextFormat'
+            }
+            , {
+                field: 'soporte5',
+                title: 'Soporte5',
+                align: 'center',
+                valign: 'middle',
+                class: 'TextFormat'
+            }
+            
+            ///
+            , {
                 field: 'resp_seg',
                 title: 'Responsable del Seguimiento',
                 align: 'center',
@@ -489,7 +552,7 @@ function cargarTabla(idDealer) {
                 }
             }*/, {
                 field: 'status',
-                title: 'Estatus de la Queja',
+                title: 'Estatus de <BR> la Queja',
                 class: 'TextFormat',
                 align: 'center',
                 valign: 'middle',
@@ -498,12 +561,12 @@ function cargarTabla(idDealer) {
                     emptytext: '----------',
                     url: 'GuardarQuejaCaptura',
                     type: 'select',
-                    source: [{value: 'Y', text: 'Activo'}, {value: 'N', text: 'Inactivo'}]
+                    source: [{value: 'Y', text: 'Abierto'}, {value: 'N', text: 'Cerrado'}]
                 }
             }
             , {
                 field: 'valido_eval',
-                title: 'Valido para auditoria ',
+                title: 'V&aacute;lido para auditor&iacute;a ',
                 class: 'TextFormat',
                 align: 'center',
                 valign: 'middle',
@@ -518,7 +581,7 @@ function cargarTabla(idDealer) {
             
             , {
                 field: 'fecha_cierre',
-                title: 'Fecha de Cierre',
+                title: 'Fecha de <BR> Cierre',
                 align: 'center',
                 valign: 'middle',
                 class: 'TextFormat',
